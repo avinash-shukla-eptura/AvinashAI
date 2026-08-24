@@ -1,0 +1,211 @@
+.cursor/mcp.json
+  s_eb50405373e17b::t_a780ed99263c3b 3-4,6-13,15-16
+  s_beed4293f37f01::t_deb1bc6df1612e 1-2,5,14,17-28
+.aid/PROJECT.md
+  s_beed4293f37f01::t_deb1bc6df1612e 1-4,6-8,13-15,23-25,30-32,36-38
+  h_1598abf572c8d6 5,9-12,16-22,26-29,33-35,39-41
+BOOTSTRAP.md
+  s_beed4293f37f01::t_deb1bc6df1612e 1-83
+.claude/skills/code-refactoring-workflow/SKILL.md
+  s_438b4abb9696e9::t_a0503209bdd229 1-151
+.gitignore
+  s_5aa5e7847f38f7::t_8f3bfc1c423d56 1-2
+.vscode/mcp.json
+  s_beed4293f37f01::t_deb1bc6df1612e 1-2,4,6,14,16,19-31
+  s_eb50405373e17b::t_a780ed99263c3b 3,5,7-13,15,17-18
+.claude/skills/code-generation-workflow/SKILL.md
+  s_438b4abb9696e9::t_a0503209bdd229 1-313
+.cursor/hooks/scripts/riper-gate.ps1
+  s_beed4293f37f01::t_deb1bc6df1612e 1-341
+.claude/skills/dependency-upgrade-management/SKILL.md
+  s_438b4abb9696e9::t_a0503209bdd229 1-253
+.aid/memory/2026-08-19-untracked-protocol-files.md
+  h_1598abf572c8d6 1-61
+.cursor/hooks/scripts/riper-gate-cursor.ps1
+  s_beed4293f37f01::t_deb1bc6df1612e 1-72
+.aid/aid.json
+  s_8c8172a39c1523::t_52892b54037456 5-9
+  s_a70123962edfb7::t_78aea84aae8979 4
+  s_beed4293f37f01::t_deb1bc6df1612e 1-3,10-51
+.aid/memory/2026-08-19.md
+  s_8c8172a39c1523::t_388364bd9b5a1e 7-11
+  s_8c8172a39c1523::t_5262d690290a3e 4-6
+  s_8c8172a39c1523::t_823973b8b1f061 12-14
+  s_5aa5e7847f38f7::t_ce1343cd0c0746 1-3,15-16
+.aid/ARCHITECTURE.md
+  s_beed4293f37f01::t_deb1bc6df1612e 1-2,142-246
+  s_8c8172a39c1523::t_f2618d130a1ef1 3-141
+.aid/TRIBAL.md
+  s_beed4293f37f01::t_deb1bc6df1612e 1-30
+.aid/DEPENDENCIES.md
+  s_beed4293f37f01::t_deb1bc6df1612e 1-2,52-104
+  s_8c8172a39c1523::t_38a265c3003037 3-51
+.aid/COVERAGE.md
+  s_8c8172a39c1523::t_66a050ead9882a 8-9,15-17,19-22,38,42,46-47
+  s_beed4293f37f01::t_deb1bc6df1612e 1-7,10-14,18,23-37,39-41,43-45
+AGENTS.md
+  s_beed4293f37f01::t_deb1bc6df1612e 1-37
+.claude/agents/forge-code-implementation.md
+  s_438b4abb9696e9::t_614dcf9fa11eb1 1-199
+.aid/memory/2026-08-19-aid-init-scan.md
+  h_1598abf572c8d6 1-48
+.aid/rules/example.md
+  s_beed4293f37f01::t_deb1bc6df1612e 1-39
+.cursor/rules/aid.mdc
+  s_beed4293f37f01::t_deb1bc6df1612e 1-9
+CLAUDE.md
+  s_beed4293f37f01::t_deb1bc6df1612e 1-30
+.aid/STABILITY.md
+  s_8c8172a39c1523::t_c09664589d4d41 8,26-31,35
+  s_beed4293f37f01::t_deb1bc6df1612e 1-7,9-25,32-34,36-50
+.cursor/hooks/scripts/riper-gate.sh
+  s_beed4293f37f01::t_deb1bc6df1612e 1-394
+.aid/CONVENTIONS.md
+  s_8c8172a39c1523::t_0d6f2aaba722ef 3,5,7-11,13,15-20,22,24-35,40-47
+  s_beed4293f37f01::t_deb1bc6df1612e 1-2,4,6,12,14,21,23,36-39,48-76
+.cursor/hooks/scripts/riper-gate-cursor.sh
+  s_beed4293f37f01::t_deb1bc6df1612e 1-82
+.mcp.json
+  s_beed4293f37f01::t_deb1bc6df1612e 1-2,5,10-19,22,25-28
+  s_beed4293f37f01::t_9ef8f605b5895b 3-4
+  s_beed4293f37f01::t_231662eb232145 6-9
+  s_beed4293f37f01::t_0e22b20f4f9c32 20-21
+  s_beed4293f37f01::t_98352b798a14e8 23-24
+.cursor/hooks.json
+  s_beed4293f37f01::t_deb1bc6df1612e 1-8,11
+  s_beed4293f37f01::t_484a56bc2a03a7 9-10
+.claude/skills/defect-remediation/SKILL.md
+  s_438b4abb9696e9::t_a0503209bdd229 1-329
+.cursor/hooks/scripts/riper-state.sh
+  s_beed4293f37f01::t_deb1bc6df1612e 1-83
+.aid/MEMORY.md
+  s_8c8172a39c1523::t_f26f567a0261b6 24-27,54-56,60-68,72
+  s_8c8172a39c1523::t_b86119853d8a17 4-23,28-53,57-59,69-71,73-82,84
+  s_beed4293f37f01::t_deb1bc6df1612e 1-3,85
+  h_1598abf572c8d6 83,86
+.aid/memory/2026-08-24.md
+  s_438b4abb9696e9::t_49de7af86ea0d2 1-10
+.aid/memory/2026-08-20.md
+  h_1598abf572c8d6 1-20
+.aid/memory/2026-08-21.md
+  h_1598abf572c8d6 1-18
+.claude/hooks/scripts/pre-compact.ps1
+  h_1598abf572c8d6 1-25
+.claude/hooks/scripts/pre-compact.sh
+  h_1598abf572c8d6 1-22
+.claude/hooks/scripts/riper-gate.ps1
+  h_1598abf572c8d6 1-341
+.claude/hooks/scripts/riper-gate.sh
+  h_1598abf572c8d6 1-394
+.claude/hooks/scripts/riper-state.ps1
+  h_1598abf572c8d6 1-71
+.claude/hooks/scripts/riper-state.sh
+  h_1598abf572c8d6 1-83
+.claude/hooks/scripts/session-end.ps1
+  h_1598abf572c8d6 1-35
+.claude/hooks/scripts/session-end.sh
+  h_1598abf572c8d6 1-33
+.claude/hooks/scripts/session-start.ps1
+  h_1598abf572c8d6 1-89
+.claude/hooks/scripts/session-start.sh
+  h_1598abf572c8d6 1-97
+.claude/rules/aid-jira.md
+  h_1598abf572c8d6 1-54
+.claude/rules/endor-safety.md
+  h_1598abf572c8d6 1-15
+.claude/settings.json
+  h_1598abf572c8d6 1-52
+.claude/skills/aid-execute/SKILL.md
+  h_1598abf572c8d6 1-368
+.claude/skills/aid-impact/SKILL.md
+  h_1598abf572c8d6 1-263
+.claude/skills/aid-init/SKILL.md
+  h_1598abf572c8d6 1-383
+.claude/skills/aid-innovate/SKILL.md
+  h_1598abf572c8d6 1-248
+.claude/skills/aid-plan/SKILL.md
+  h_1598abf572c8d6 1-391
+.claude/skills/aid-qa/SKILL.md
+  h_1598abf572c8d6 1-337
+.claude/skills/aid-refresh/SKILL.md
+  h_1598abf572c8d6 1-234
+.claude/skills/aid-research/SKILL.md
+  h_1598abf572c8d6 1-360
+.claude/skills/aid-review/SKILL.md
+  h_1598abf572c8d6 1-431
+.claude/skills/aid-seed/SKILL.md
+  h_1598abf572c8d6 1-393
+.claude/skills/aid-session/SKILL.md
+  h_1598abf572c8d6 1-201
+.claude/skills/aid-ship/SKILL.md
+  h_1598abf572c8d6 1-513
+.claude/skills/aid-skill-new/SKILL.md
+  h_1598abf572c8d6 1-102
+.claude/skills/aid-skill-promote/SKILL.md
+  h_1598abf572c8d6 1-105
+.claude/skills/aid-status/SKILL.md
+  h_1598abf572c8d6 1-358
+.claude/skills/aid-upgrade/SKILL.md
+  h_1598abf572c8d6 1-182
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "4afc04c3b8ef6ac988c564c4f2f84e2d7ecb0d07",
+  "prompts": {},
+  "humans": {
+    "h_1598abf572c8d6": {
+      "author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  },
+  "sessions": {
+    "s_438b4abb9696e9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b4b69e8b-aed9-4a39-81ac-b1c3928922af",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_5aa5e7847f38f7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "381fde09-c33f-44c0-9ce6-f7609866ef5c",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_8c8172a39c1523": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "af9166e7-a4a6-4e27-b878-92dc59ac4b50",
+        "model": "copilot/claude-sonnet-4.6"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_a70123962edfb7": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "e2c93436-cac1-437e-9bf8-86efe49cfd39",
+        "model": "copilot/claude-sonnet-4.6"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_beed4293f37f01": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "83d49dc5-a8e7-492d-bd3a-ecf9e4b0aad2",
+        "model": "copilot/claude-sonnet-4.6"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_eb50405373e17b": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "8a9fe122-7668-4254-bc94-2cf55e05037a",
+        "model": "copilot/claude-sonnet-4.6"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
