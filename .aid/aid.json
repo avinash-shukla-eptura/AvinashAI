@@ -1,0 +1,51 @@
+{
+  "version": "0.10.1",
+  "project": "AvinashAI",
+  "initialized": "2026-08-19",
+  "tools": {
+    "claude_code": true,
+    "cursor": true,
+    "copilot": true
+  },
+  "jira": {
+    "enabled": false,
+    "site": "https://eptura.atlassian.net",
+    "projectKey": "",
+    "updateMode": "comments-only",
+    "ticket": {
+      "sources": [
+        "user",
+        "branch",
+        "commit"
+      ],
+      "pattern": "\\b([A-Z][A-Z0-9]{1,9}-[0-9]+)\\b",
+      "requireProjectKeyMatch": true
+    },
+    "comments": {
+      "prefix": "[AID]",
+      "maxLines": 15
+    },
+    "statusMap": {
+      "research_complete": "Technical Specification Creation",
+      "plan_awaiting_approval": "Technical Specification Review",
+      "plan_approved": "Plan Approval",
+      "execute_started": null,
+      "execute_halted": null,
+      "execute_complete": "Build Approval",
+      "review_passed": "Review Approval",
+      "review_failed": null,
+      "qa_design_ready": null,
+      "qa_passed": "Testing successfully completed",
+      "qa_failed": null,
+      "qa_blocked": null,
+      "pr_created": null,
+      "shipped": "Release Management"
+    },
+    "guards": {
+      "neverTransitionTo": [
+        "Release Ready",
+        "Done"
+      ]
+    }
+  }
+}

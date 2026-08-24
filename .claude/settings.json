@@ -1,0 +1,52 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pwsh \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/scripts/riper-gate.ps1",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pwsh \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/scripts/session-end.ps1",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pwsh \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/scripts/session-start.ps1",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pwsh \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/scripts/pre-compact.ps1",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
