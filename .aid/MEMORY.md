@@ -20,6 +20,8 @@
 
 ## Investigation History
 
+- [2026-08-27] **AIDLC Flow Research** — Complete reference for all 8 AIDLC stage agents (Piper, Sorty, Delphi, Atlas, Forge, Argus, Proof, Herald), their skills, Jira status mappings, and DeviceHub-Meta branch policy. DeviceHub `Development` branch trap documented. → memory/2026-08-27-aidlc-flow-research.md
+- [2026-08-26] **NCLCON-13233** — Device Health pagination plan; closed not-relevant. Full AIDLC cycle proven end-to-end. → memory/2026-08-26-nclcon-13233-plan.md
 - [2026-08-19] `/aid-init` scan — no bugs, no hotspots. Repo is config-only, 1 commit,
   1 contributor. → memory/2026-08-19-aid-init-scan.md
 - [2026-08-19] `/aid-seed` discovery — all protocol files are UNTRACKED. Only README.md is
@@ -28,6 +30,15 @@
 
 ## Patterns and Gotchas
 
+- **AIDLC target codebase is DeviceHub-Meta (NCLCON project).** 59 repos, integration branch
+  is `Development` (capital D) on `connect-*`. Lowercase `develop` is a dead 2023 branch.
+  Always supply `target_branch: Development` in Forge jobs for NCLCON tickets.
+- **Jira is disabled in both aid.json files.** Set `enabled: true` + `projectKey: "NCLCON"` in
+  `DeviceHub-Meta/.aid/aid.json` before expecting automated status transitions.
+- **Forge (agent-platform-code-implementation) is the production-wired agent** for code work.
+  The `forge-code-implementation` agent in VS Code agent list = same agent.
+- **AIDLC proven end-to-end:** NCLCON-13233 was a complete exercise run (2026-08-26).
+  Reference: memory/2026-08-26-nclcon-13233-plan.md
 - This repo contains no source code — "test coverage" and "hotspots" don't apply.
   All skills reference target codebases (DeviceHub/Connect), not this repo.
 - CLAUDE.md and AGENTS.md use `@imports` — do NOT edit them as knowledge sources.

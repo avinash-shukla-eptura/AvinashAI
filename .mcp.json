@@ -10,12 +10,15 @@
       ]
     },
     "atlassian": {
-      "command": "npx",
+      "command": "C:\\Program Files\\nodejs\\npx.cmd",
       "args": [
         "-y",
         "mcp-remote@0.1.29",
         "https://mcp.atlassian.com/v1/mcp"
-      ]
+      ],
+      "env": {
+        "NODE_EXTRA_CA_CERTS": "C:\\Users\\AvinashShukla\\zscaler-root-ca.pem"
+      }
     },
     "basic-memory": {
       "command": "basic-memory",
