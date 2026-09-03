@@ -1,0 +1,98 @@
+name: PR Auto Review (reusable)
+
+# Reusable workflow: does the actual AI review + posts it as a GitHub PR review.
+# Called by a thin per-repo "caller" workflow (see .github/workflows/pr-review-caller.yml).
+on:
+  workflow_call:
+    inputs:
+      model:
+        description: Model passed to the Copilot CLI (e.g. gpt-4.1, claude-sonnet-4.5)
+        type: string
+        default: gpt-4.1
+    secrets:
+      copilot-token:
+        description: PAT for an account with an active GitHub Copilot seat (authenticates the Copilot CLI)
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      # No repo checkout: we only read the diff via `gh`, never execute PR code.
+      - name: Get PR diff and metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          gh pr diff "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" > pr.diff
+          head -c 60000 pr.diff > pr.diff.trunc && mv pr.diff.trunc pr.diff
+          printf '%s' "$PR_TITLE" > pr-title.txt
+          printf '%s' "$PR_BODY" > pr-body.txt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Copilot CLI
+        run: npm install -g @github/copilot
+
+      - name: Run AI code review
+        id: ai
+        uses: actions/ai-inference@v1
+        with:
+          model: ${{ inputs.model }}
+          prompt-file: .github/prompts/pr-review.prompt.yml
+          file_input: |
+            diff: pr.diff
+            title: pr-title.txt
+            body: pr-body.txt
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.copilot-token }}
+
+      - name: Post review to the PR
+        uses: actions/github-script@v7
+        env:
+          AI_RESPONSE: ${{ steps.ai.outputs.response }}
+        with:
+          script: |
+            let parsed;
+            try {
+              const raw = process.env.AI_RESPONSE || '{}';
+              const match = raw.match(/\{[\s\S]*\}/);
+              parsed = JSON.parse(match ? match[0] : raw);
+            } catch (e) {
+              core.warning(`Could not parse AI response as JSON: ${e.message}`);
+              parsed = { verdict: 'COMMENT', summary: `AI review response could not be parsed:\n\n${process.env.AI_RESPONSE}`, comments: [] };
+            }
+
+            const allowedEvents = new Set(['APPROVE', 'REQUEST_CHANGES', 'COMMENT']);
+            const event = allowedEvents.has(parsed.verdict) ? parsed.verdict : 'COMMENT';
+            const comments = Array.isArray(parsed.comments)
+              ? parsed.comments.filter(c => c && c.path && Number.isInteger(c.line))
+              : [];
+
+            const pull_number = context.payload.pull_request.number;
+            const common = { owner: context.repo.owner, repo: context.repo.repo, pull_number };
+
+            try {
+              await github.rest.pulls.createReview({
+                ...common,
+                event,
+                body: parsed.summary || 'Automated review',
+                comments: comments.map(c => ({ path: c.path, line: c.line, side: c.side || 'RIGHT', body: c.body })),
+              });
+            } catch (err) {
+              core.warning(`Inline comments rejected (${err.message}); falling back to a summary-only review`);
+              const fallbackBody = [
+                parsed.summary || 'Automated review',
+                '',
+                comments.length ? '**Inline notes that could not be anchored to the diff:**' : '',
+                ...comments.map(c => `- \`${c.path}:${c.line}\` — ${c.body}`),
+              ].join('\n');
+              await github.rest.pulls.createReview({ ...common, event, body: fallbackBody });
+            }

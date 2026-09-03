@@ -1,0 +1,23 @@
+name: Auto PR Review
+
+# Triggers only when review is requested from this specific user, then delegates
+# the actual work to the reusable workflow in this same repo.
+# To enable this in ANY OTHER repo: copy this file there unchanged (the `uses:` path
+# already points at the central repo) and add a COPILOT_GITHUB_TOKEN secret there too.
+on:
+  pull_request_target:
+    types: [review_requested]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    if: github.event.requested_reviewer.login == 'avinash-shukla-eptura'
+    uses: avinash-shukla-eptura/AvinashAI/.github/workflows/pr-auto-review.yml@main
+    permissions:
+      contents: read
+      pull-requests: write
+    secrets:
+      copilot-token: ${{ secrets.COPILOT_GITHUB_TOKEN }}
