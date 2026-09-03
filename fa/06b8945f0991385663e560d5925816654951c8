@@ -1,0 +1,18 @@
+.github/prompts/pr-review.prompt.yml
+  h_1598abf572c8d6 1-42
+.github/workflows/pr-auto-review.yml
+  h_1598abf572c8d6 1-98
+.github/workflows/pr-review-caller.yml
+  h_1598abf572c8d6 1-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "fa06b8945f0991385663e560d5925816654951c8",
+  "prompts": {},
+  "humans": {
+    "h_1598abf572c8d6": {
+      "author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
