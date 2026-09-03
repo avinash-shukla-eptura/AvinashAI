@@ -1,0 +1,6 @@
+node_modules/
+state.json
+.tmp_review_payload.json
+.tmp_post_payload.json
+review-*.json
+.env

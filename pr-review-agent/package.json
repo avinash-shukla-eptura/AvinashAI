@@ -1,0 +1,13 @@
+{
+  "name": "pr-review-agent",
+  "version": "1.0.0",
+  "description": "AI-powered PR review agent for CondecoByEptura/eptura GitHub orgs",
+  "type": "module",
+  "scripts": {
+    "start": "node agent.js",
+    "check": "node agent.js --dry-run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0"
+  }
+}
