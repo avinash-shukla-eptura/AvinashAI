@@ -1,0 +1,42 @@
+pr-review-agent/.gitignore
+  s_5d3a7e528147d7::t_e6d7f9ccf6c3e3 4-5
+  s_5d3a7e528147d7::t_373b11b063887d 1-3,6
+pr-review-agent/LOOP_PROMPT.md
+  s_5d3a7e528147d7::t_a368228a0b2f37 1-60
+pr-review-agent/post-review.js
+  s_5d3a7e528147d7::t_d414f6ce93c919 1-127
+pr-review-agent/README.md
+  s_5d3a7e528147d7::t_17a7d3d41b3b4e 1-3,6,24-30,32-34,36-38,40-41,43-45,47,49,52-53,55,57-61,63,75-77,79,81,93-97,100
+  s_5d3a7e528147d7::t_09e67c81bcaa4d 4-5,7-18,20,22-23,31,35,39,42,46,48,50-51,54,56,62,64-74,78,80,82-92,98-99,101-104
+  s_5d3a7e528147d7::t_6210e461de5d7f 105
+  s_5d3a7e528147d7::t_4563bef4cc4aac 19,21
+pr-review-agent/fetch-pending.js
+  s_5d3a7e528147d7::t_51e66ed1c75906 29-31
+  s_5d3a7e528147d7::t_ad4e50f44a3e50 106-120
+  s_5d3a7e528147d7::t_fcdb87e1ab1cae 1-28,32-105,121-178
+pr-review-agent/package.json
+  s_5d3a7e528147d7::t_c31e76f5dbd836 1-13
+pr-review-agent/package-lock.json
+  s_5d3a7e528147d7::t_e0f1984fbcb268 1-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "ff0d85ab5847351b1ceb08e81f7e73837206453d",
+  "prompts": {},
+  "humans": {
+    "h_1598abf572c8d6": {
+      "author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  },
+  "sessions": {
+    "s_5d3a7e528147d7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9d37fdeb-2657-48fd-bbb0-8aa13696d585",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
