@@ -65,14 +65,36 @@ function parseAddedLines(diffText) {
   let file = null, newLine = 0;
 
   for (const line of diffText.split('\n')) {
-    if (line.startsWith('+++ b/'))       { file = line.slice(6).trim(); map[file] = []; }
-    else if (line.startsWith('diff --git') || line.startsWith('--- ')) { /* skip */ }
+    // File header — start tracking a new file
+    if (line.startsWith('+++ b/')) {
+      file = line.slice(6).trim();
+      map[file] = [];
+    }
+    // Diff metadata lines — never part of file content, must be skipped before
+    // the catch-all context branch below or they'd shift line counters.
+    else if (
+      line.startsWith('diff --git') ||
+      line.startsWith('--- ')       ||
+      line.startsWith('index ')     ||
+      line.startsWith('new file ')  ||
+      line.startsWith('deleted file ') ||
+      line.startsWith('old mode ')  ||
+      line.startsWith('new mode ')  ||
+      line.startsWith('rename ')    ||
+      line.startsWith('similarity index') ||
+      line === '\\ No newline at end of file'
+    ) {
+      /* skip — not real file content */
+    }
+    // Hunk header — sets the starting new-file line number
     else if (line.startsWith('@@ ')) {
       const m = line.match(/@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/);
       if (m) newLine = parseInt(m[1], 10) - 1;
-    } else if (file) {
-      if (line.startsWith('+'))      { newLine++; map[file].push(newLine); }
-      else if (!line.startsWith('-')) { newLine++; }
+    }
+    // File content lines
+    else if (file) {
+      if (line.startsWith('+'))       { newLine++; map[file].push(newLine); }
+      else if (!line.startsWith('-')) { newLine++; }   // context line
     }
   }
   return map;
@@ -147,9 +169,10 @@ async function main() {
           '\n\n[... diff truncated — see the full PR on GitHub for remaining changes ...]'
         : rawDiff;
 
-      // ── Fetch file list ────────────────────────────────────────────────────
+      // ── Fetch file list (paginated — PRs with >30 files need --paginate) ──
       const files = ghJson([
         'api', `repos/${nameWithOwner}/pulls/${pr.number}/files`,
+        '--paginate',
       ]) ?? [];
 
       result.push({

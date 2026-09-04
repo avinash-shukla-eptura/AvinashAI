@@ -28,7 +28,7 @@ post-review.js    →  posts review to GitHub, updates state.json
 ### 1. Install dependencies
 
 ```bash
-cd D:\DeviceHubEptura\AvinashAI\pr-review-agent
+cd pr-review-agent
 npm install
 ```
 
@@ -46,6 +46,8 @@ That's it — no API key needed.
 ## Running
 
 ### Quick check (list pending PRs, no diffs)
+
+Run from the repo root:
 
 ```bash
 node pr-review-agent/fetch-pending.js --list
@@ -71,7 +73,7 @@ Claude will:
 
 Ask Claude Code directly:
 
-> Read `D:\DeviceHubEptura\AvinashAI\pr-review-agent\LOOP_PROMPT.md` and follow its instructions now.
+> Read `pr-review-agent/LOOP_PROMPT.md` and follow its instructions now.
 
 ---
 

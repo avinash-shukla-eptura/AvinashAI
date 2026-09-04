@@ -103,13 +103,18 @@ function main() {
   // Attempt 1: review with inline comments
   let result = ghPost(endpoint, { commit_id: commitSha, body, event, comments });
 
-  // Attempt 2: fall back to body-only if GitHub rejected any inline comment
+  // Attempt 2: fall back to body-only if GitHub rejected any inline comment.
+  // Append each inline comment as a quoted block so no feedback is silently lost.
   if (!result.ok && comments.length > 0) {
     console.warn('Inline comments rejected by GitHub — retrying without them…');
+    const inlineSection = comments
+      .map(c => `**\`${c.path}:${c.line}\`**\n\n${c.body}`)
+      .join('\n\n---\n\n');
     const fallbackBody =
       body +
-      '\n\n---\n> ⚠️ *Inline comments could not be attached (line-number mismatch with the diff). ' +
-      'All feedback is in this review body.*';
+      '\n\n---\n> ⚠️ *Inline comments could not be attached (line-number mismatch with diff). ' +
+      'They are included below instead.*\n\n' +
+      inlineSection;
     result = ghPost(endpoint, { commit_id: commitSha, body: fallbackBody, event, comments: [] });
   }
 

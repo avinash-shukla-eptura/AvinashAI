@@ -8,10 +8,10 @@ You are acting as a code reviewer on behalf of Avinash Shukla (Senior Engineer, 
 
 **Step 1 — Fetch pending PRs**
 
-Run this command and parse its JSON output:
+From the repo root, run this command and parse its JSON output:
 
 ```
-node D:\DeviceHubEptura\AvinashAI\pr-review-agent\fetch-pending.js
+node pr-review-agent/fetch-pending.js
 ```
 
 If the output is `[]`, print "✓ No pending PRs." and stop.
@@ -36,7 +36,7 @@ For each PR object in the JSON array:
 **Step 3 — Post each review**
 
 Write your review to a temporary JSON file at:
-`D:\DeviceHubEptura\AvinashAI\pr-review-agent\review-<number>.json`
+`pr-review-agent/review-<number>.json`
 
 The file must match this schema exactly:
 ```json
@@ -54,7 +54,7 @@ The file must match this schema exactly:
 
 Then run:
 ```
-node D:\DeviceHubEptura\AvinashAI\pr-review-agent\post-review.js D:\DeviceHubEptura\AvinashAI\pr-review-agent\review-<number>.json
+node pr-review-agent/post-review.js pr-review-agent/review-<number>.json
 ```
 
 Report the result (success URL or error) for each PR.
