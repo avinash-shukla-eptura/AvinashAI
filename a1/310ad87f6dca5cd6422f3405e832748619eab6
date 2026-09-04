@@ -1,0 +1,37 @@
+pr-review-agent/README.md
+  s_5d3a7e528147d7::t_ae67a5052e7390 50-51
+  s_5d3a7e528147d7::t_a1c26c9b2ae171 76
+  s_5d3a7e528147d7::t_1bbf0bc1145555 31
+pr-review-agent/fetch-pending.js
+  s_5d3a7e528147d7::t_9c046ed76dfdaf 172,175
+  s_5d3a7e528147d7::t_d308b60c6ca787 68-89,93-97
+pr-review-agent/package.json
+  s_5d3a7e528147d7::t_53757e4f61415f 7-8
+pr-review-agent/LOOP_PROMPT.md
+  s_5d3a7e528147d7::t_b508b72f6b274d 11,14,39,57
+pr-review-agent/post-review.js
+  s_5d3a7e528147d7::t_3b36fbf5f83a12 106-107,110-112,115-117
+pr-review-agent/package-lock.json
+  s_5d3a7e528147d7::t_dac6774c36b9eb 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "a1310ad87f6dca5cd6422f3405e832748619eab6",
+  "prompts": {},
+  "humans": {
+    "h_1598abf572c8d6": {
+      "author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  },
+  "sessions": {
+    "s_5d3a7e528147d7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9d37fdeb-2657-48fd-bbb0-8aa13696d585",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
