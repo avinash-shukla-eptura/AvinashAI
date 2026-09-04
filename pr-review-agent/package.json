@@ -1,0 +1,10 @@
+{
+  "name": "pr-review-agent",
+  "version": "1.0.0",
+  "description": "AI-powered PR review agent for CondecoByEptura/eptura GitHub orgs",
+  "type": "module",
+  "scripts": {
+    "fetch": "node fetch-pending.js",
+    "list": "node fetch-pending.js --list"
+  }
+}
