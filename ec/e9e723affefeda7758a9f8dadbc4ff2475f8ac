@@ -1,0 +1,26 @@
+.aid/aid.json
+  s_7b2f9660e1e882::t_48c83186b139f9 1-4
+.cursor/rules/aidlc-dispatch.mdc
+  s_7b2f9660e1e882::t_6a209b3dfde5f1 1-103
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "ece9e723affefeda7758a9f8dadbc4ff2475f8ac",
+  "prompts": {},
+  "humans": {
+    "h_1598abf572c8d6": {
+      "author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  },
+  "sessions": {
+    "s_7b2f9660e1e882": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "400934d6-ef07-41b1-af29-ee0507a471bb",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
