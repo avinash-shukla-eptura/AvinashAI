@@ -1,0 +1,103 @@
+---
+description: AIDLC stage dispatch for Cursor — reads the current Jira ticket state via Atlassian MCP and activates the correct AIDLC stage agent.
+globs:
+alwaysApply: false
+---
+
+# AIDLC Stage Dispatch — Cursor
+
+This rule fires when you are asked to work on a Jira ticket or perform an AIDLC stage task.
+It reads the ticket's current labels and status via the Atlassian MCP, then activates the
+correct AIDLC stage agent by loading that agent's AGENTS.md and surfacing its role heading.
+
+---
+
+## Dispatch logic
+
+Read the Jira ticket referenced in the task (the key appears in the prompt, a branch name,
+or the current working directory's `.aid/current-ticket` file). Then map the ticket's current
+labels and status to the correct AIDLC stage:
+
+| Ticket state / labels | AIDLC stage | Agent to activate |
+|---|---|---|
+| `ready-for-prd-authoring` | Stage 1 — PRD Authoring | Piper (agent-platform-prd-authoring) |
+| `ready-for-backlog-triage` | Stage 2 — Backlog Triage | Sorty (agent-platform-backlog-triage) |
+| `ready-for-complexity-forecast` OR `ready-for-complexity-estimate` | Stage 3 Run 1 — Forecast | Delphi (agent-platform-complexity-scoring) |
+| `ready-for-complexity-grounded` | Stage 3 Run 2 — Grounded | Delphi (agent-platform-complexity-scoring) |
+| `ready-for-complexity-actual` | Stage 3 Run 3 — Actual | Delphi (agent-platform-complexity-scoring) |
+| `ready-for-planning` | Stage 4 — Delivery Planning | Atlas (agent-platform-delivery-planning) |
+| `ready-for-implementation` | Stage 5 — Code Implementation | Forge (agent-platform-code-implementation) |
+| `ready-for-code-review` | Stage 6 — Code Review | Argus (agent-platform-code-review) |
+| `ready-for-testing` | Stage 7 — Quality Verification | Proof (agent-platform-quality-verification) |
+| `ready-for-release` | Stage 8 — Release & Deploy | Herald (agent-platform-release-delivery) |
+
+If the ticket has none of the above labels, read its **Status** field:
+- `In Progress` + PR open → likely Stage 5 or 6; ask the user which stage to run.
+- `In Review` → likely Stage 6 (Argus); confirm before proceeding.
+- `Done` (optional) → Stage 3 Run 3 (Delphi actual-scoring) if requested explicitly.
+
+If there is ambiguity, list the candidate stages and ask the user which one to activate.
+**Never guess the stage and start executing — confirm first.**
+
+---
+
+## Activation procedure
+
+Once you have identified the stage:
+
+1. **Load the AGENTS.md** for that agent (paths below). Read it fully before taking any action.
+2. **Identify the correct `## Role:`** heading for the task. The dispatch table in AGENTS.md
+   shows which role maps to which ready label or ticket state.
+3. **Announce the activation**: post a one-line Jira comment saying which agent and role are
+   active (e.g. `Starting Delphi — Role: complexity-forecast on <ticket-key>`). Use the
+   Atlassian MCP.
+4. **Execute the role** exactly as the AGENTS.md specifies.
+
+---
+
+## RIPER gate (behavioural enforcement)
+
+Cursor enforces the RIPER gate via `.cursor/hooks.json` (preToolUse). If that hook is
+active, it blocks file edits until an approved plan exists in the Jira comment trail.
+
+For stages that make file changes (Forge — Stage 5, Proof — Stage 7), always confirm that:
+- A plan has been approved (the Jira comment trail shows `PLAN_MATERIALIZE_COMPLETE: PASSED`
+  or equivalent).
+- The task description carries an explicit `## Role:` heading from Atlas.
+
+If no approved plan is found, **post a Jira comment naming the missing gate** and stop —
+do not begin writing code or tests.
+
+For read-only stages (Delphi, Atlas, Argus), the gate is not required but always confirm
+via the Jira ticket that the upstream gate completed successfully before proceeding.
+
+---
+
+## Agent AGENTS.md locations
+
+All paths are relative to the ai-registry catalog. The Atlassian MCP is your interface to
+Jira — you do not need the files below to be on disk in this repo; you access them via the
+registry's deployed harness.
+
+| Agent | Role | Catalog path |
+|---|---|---|
+| agent-platform-prd-authoring | Piper | `agents/agent-platform-prd-authoring/AGENTS.md` |
+| agent-platform-backlog-triage | Sorty | `agents/agent-platform-backlog-triage/AGENTS.md` |
+| agent-platform-complexity-scoring | Delphi | `agents/agent-platform-complexity-scoring/AGENTS.md` |
+| agent-platform-delivery-planning | Atlas | `agents/agent-platform-delivery-planning/AGENTS.md` |
+| agent-platform-code-implementation | Forge | `agents/agent-platform-code-implementation/AGENTS.md` |
+| agent-platform-code-review | Argus | `agents/agent-platform-code-review/AGENTS.md` |
+| agent-platform-quality-verification | Proof | `agents/agent-platform-quality-verification/AGENTS.md` |
+| agent-platform-release-delivery | Herald | `agents/agent-platform-release-delivery/AGENTS.md` |
+
+---
+
+## MCP servers required
+
+Both are configured in `.cursor/mcp.json`:
+
+- **Atlassian MCP** — Jira operations (read labels, post comments, transition status, create
+  tickets). Required for all 8 stages.
+- **Endor Labs MCP** — Security scanning. Hard gate for Stage 5 (Forge): no code push until
+  Endor scan passes. Required for Stage 5.
+- **basic-memory MCP** — Session memory. Optional but recommended for multi-stage runs.
