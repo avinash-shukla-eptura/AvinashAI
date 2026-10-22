@@ -1,0 +1,27 @@
+docs/jira-comment-read-check.py
+  s_9a4b8d387e11bb::t_3bc1c640ba58ee 1-92
+docs/jira-agent-comment-format-requirements.md
+  s_9a4b8d387e11bb::t_6b7caa8e1a6794 1-4,6-290
+  s_9a4b8d387e11bb::t_1c08058f9054d9 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f71918179e601b604ea6b4fce082b28743b436b6",
+  "prompts": {},
+  "humans": {
+    "h_1598abf572c8d6": {
+      "author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  },
+  "sessions": {
+    "s_9a4b8d387e11bb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5d62939d-6e8d-41f2-94b9-e8b569314ab6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
