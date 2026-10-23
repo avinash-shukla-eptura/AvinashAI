@@ -1,6 +1,7 @@
 # PR Review Agent — Loop Prompt
 
-Paste everything below the line into Claude Code after typing `/loop 30m`:
+Used by the GitHub Copilot app automation "PR auto-review" (every 2 hours).
+Can also be pasted into Claude Code after typing `/loop 2h`:
 
 ---
 
@@ -45,7 +46,7 @@ The file must match this schema exactly:
   "number":   <pr.number>,
   "commitSha": "<pr.commitSha>",
   "event":    "APPROVE|REQUEST_CHANGES|COMMENT",
-  "body":     "markdown review body (3-6 paragraphs)",
+  "body":     "consolidated markdown review summary (3-6 paragraphs): overview, findings per dimension, verdict rationale",
   "inlineComments": [
     { "path": "<exact filename from addedLines>", "line": <integer from addedLines[filename]>, "body": "markdown" }
   ]

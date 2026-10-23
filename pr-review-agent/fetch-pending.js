@@ -2,8 +2,8 @@
 /**
  * fetch-pending.js
  *
- * Queries GitHub for open PRs where you (@me) are a requested reviewer
- * across the CondecoByEptura and eptura orgs, filters out already-reviewed
+ * Queries GitHub for open PRs where you (@me) are a requested reviewer or
+ * @mentioned across the CondecoByEptura and eptura orgs, filters out already-reviewed
  * ones (tracked in state.json), then fetches the diff + file metadata for
  * each new PR.
  *
@@ -28,6 +28,8 @@ const LIST_ONLY   = process.argv.includes('--list');
 
 // GitHub login of the human reviewer — PRs they've already reviewed are skipped.
 const MY_GITHUB_LOGIN = 'avinash-shukla-eptura';
+
+const SEARCH_FILTERS = ['--review-requested=@me', '--mentions=@me'];
 
 // ─── State ────────────────────────────────────────────────────────────────────
 
@@ -106,14 +108,17 @@ async function main() {
   const state  = loadState();
   const result = [];
 
+  const seen = new Set();
+
   for (const org of ORGS) {
-    const prs = ghJson([
+    // "Tagged in" = requested as reviewer (directly or via team) OR @mentioned.
+    const prs = SEARCH_FILTERS.flatMap(filter => ghJson([
       'search', 'prs',
-      '--review-requested=@me', '--state=open',
+      filter, '--state=open',
       `--owner=${org}`,
       '--json', 'number,title,body,author,repository',
-      '--limit', '50',
-    ]) ?? [];
+      '--limit', '100',
+    ]) ?? []);
 
     for (const pr of prs) {
       const nameWithOwner =
@@ -125,6 +130,9 @@ async function main() {
       if (!nameWithOwner) continue;
 
       const key = `${nameWithOwner}#${pr.number}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      if (pr.author?.login === MY_GITHUB_LOGIN) continue;   // can't review own PR
       if (state.reviewedPRs[key]) continue;   // already reviewed by the agent
 
       // Skip if YOU have already submitted a review on GitHub

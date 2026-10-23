@@ -1,8 +1,13 @@
 # PR Review Agent
 
-Automatically reviews GitHub PRs where you are a requested reviewer across the
-**CondecoByEptura** and **eptura** orgs. Uses **Claude Code itself** as the AI
-reviewer — no separate Anthropic API key required.
+Automatically reviews open GitHub PRs where you are tagged (requested reviewer,
+directly or via team, or @mentioned) across the **CondecoByEptura** and
+**eptura** orgs. PRs you authored or already reviewed are skipped. The AI
+reviewer is the coding agent itself (GitHub Copilot app automation every 2 hours,
+or Claude Code `/loop`) — no separate API key required.
+
+Each review posts inline comments, a consolidated summary body, and an
+`APPROVE` / `REQUEST_CHANGES` / `COMMENT` verdict.
 
 ## How it works
 
@@ -53,7 +58,12 @@ Run from the repo root:
 node pr-review-agent/fetch-pending.js --list
 ```
 
-### Start the review loop
+### Scheduled (GitHub Copilot app)
+
+The app automation **PR auto-review** runs every 2 hours (cron `0 */2 * * *`)
+and follows `LOOP_PROMPT.md`. Manage it from the app's Automations view.
+
+### Start the review loop (Claude Code alternative)
 
 In Claude Code, type:
 
