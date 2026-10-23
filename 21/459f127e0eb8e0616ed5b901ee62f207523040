@@ -1,0 +1,536 @@
+.aid/aid.json
+  h_1598abf572c8d6 2-9
+.aid-local/.riper-state
+  s_312a531b6010ce::t_a3eaeb962dedb0 1-2
+.aid/MEMORY.md
+  s_312a531b6010ce::t_61bd9fb4966c5e 1-98
+.aid/memory/2026-10-06-reflex-per-user-pat-execution-platform.md
+  s_312a531b6010ce::t_c659e51a193617 1-46
+.aid/memory/2026-10-06-reflex-per-user-pat-plan.md
+  s_312a531b6010ce::t_f68ff5c4eb555d 1-132
+.aid/memory/2026-10-06-reflex-per-user-pat-qa.md
+  s_312a531b6010ce::t_78cc93c91faf3b 1-33
+.aid/memory/2026-10-06-reflex-per-user-pat-review.md
+  s_312a531b6010ce::t_28454cbbc5dc75 1-29
+.aid/memory/2026-10-07-reflex-per-user-pat-ship.md
+  s_312a531b6010ce::t_3d449ca45f44af 1-30
+.aid/memory/2026-10-12.md
+  s_20519e60da5d7a::t_4fdadcae530c84 1-9
+.aid/memory/2026-10-13.md
+  s_376a931311485d::t_d4cf5a6ef00b2e 1-7
+.aid/memory/2026-10-14-reflex-commit-identity-plan.md
+  s_312a531b6010ce::t_d52947071125dc 1-126
+.aid/memory/2026-10-14-reflex-commit-identity-ship.md
+  s_312a531b6010ce::t_76271581507e86 1-42
+.aid/memory/2026-10-19.md
+  s_3d58a2c075566b::t_3338f4b4963e74 1-25
+.aid/plans/NCLCON-13502-herald-readiness.md
+  s_826e40667ed936::t_ce59cbf52f37a9 1-120
+.aid-local/USER.md
+  s_5aa5e7847f38f7::t_46b2d45c8167cc 1
+.aid/ARCHITECTURE.md
+  s_9c6f6c342af88c::t_3f3eb1a3c72db8 1-89
+.aid/CONVENTIONS.md
+  s_710812c80929a0::t_b8b81dc85c1800 1-48
+.aid/COVERAGE.md
+  s_9c6f6c342af88c::t_be4094b29df76c 1-40
+.aid/DEPENDENCIES.md
+  s_9c6f6c342af88c::t_1fd9fde01ce07a 1-55
+.aid/PROJECT.md
+  s_9c6f6c342af88c::t_69357944c5a4f4 1-43
+.aid/STABILITY.md
+  s_9c6f6c342af88c::t_089d02c5b32541 1-29
+.aid/TRIBAL.md
+  s_9c6f6c342af88c::t_eaa9350dcd114d 1-37
+.aid/memory/2026-09-01.md
+  s_710812c80929a0::t_06c0f4ff7b6991 1-11
+.aid/memory/2026-09-02.md
+  s_c854ddd6cef9c9::t_fa47de74727f92 1-26
+.aid/memory/2026-09-03-pr-review-agent-added.md
+  s_9c6f6c342af88c::t_645fde5624342f 1-35
+.aid/memory/2026-09-04-copilot-review-comment-fixes.md
+  s_9c6f6c342af88c::t_f7c9e525bffb3f 1-46
+.aid/memory/2026-09-08-aidlc-parity-config.md
+  s_9c6f6c342af88c::t_e3c69807e29ed1 1-39
+.aid/memory/2026-09-16.md
+  s_710812c80929a0::t_74de07f8792265 1-12
+.aid/memory/2026-09-17-nclcon-13451-csp-plan.md
+  s_82b09fd09aeab4::t_29b8cb469b38f4 1-99
+.aid/memory/2026-09-17-nclcon-13451-csp-research.md
+  s_82b09fd09aeab4::t_ea4bc2e183ac13 1-119
+.aid/memory/2026-09-17.md
+  s_82b09fd09aeab4::t_519ab97838b77a 1-16
+.aid/memory/2026-09-18-nclcon-11910-duplicate-user-not-flagged.md
+  s_710812c80929a0::t_da40675b77d869 1-97
+.aid/memory/2026-09-18-nclcon-13447-delphi.md
+  s_b0a8fff9539d64::t_9b05785dd9fa7a 1-43
+.aid/memory/2026-09-18-nclcon-13447-piper.md
+  s_3203759f9158be::t_1248da35936d70 1-287
+.aid/memory/2026-09-18-nclcon-13447-sorty.md
+  s_899cceb558f11f::t_c1ca76345abd0a 1-196
+.aid/memory/2026-09-18-nclcon-8523-outdated-js-libraries.md
+  s_aeb10efe88f5ee::t_1ea006982e7163 1-105
+.aid/memory/2026-09-21-nclcon-13447-argus.md
+  s_7945fd04ea204b::t_e699cf66865df4 1-89
+.aid/memory/2026-09-21-nclcon-13447-forge.md
+  s_a1d9fe1f38d29a::t_bdd03818894e86 1-54
+.aid/memory/2026-09-21-nclcon-13447-herald.md
+  s_726bedb4babf1d::t_ba78e70ad71b93 1-122
+.aid/memory/2026-09-21-nclcon-13447-proof.md
+  s_cade8c80b4bee8::t_7c0784f5eb56f7 1-69
+.aid/memory/2026-09-21.md
+  s_710812c80929a0::t_67162996d124b6 1-25
+.aid/memory/2026-09-24-screen-settings-flow.md
+  s_fa32080ad414cb::t_c92b2e0f5c1d45 1-29
+.aid/memory/2026-10-05.md
+  s_312a531b6010ce::t_10f98320fdb405 1-10
+.aid/memory/2026-10-06-reflex-per-user-pat-research.md
+  s_312a531b6010ce::t_6c2583b65bd472 1-33
+.aid/memory/2026-10-14.md
+  s_6a8bf6ef7757fd::t_48d010f30a85e0 1-14
+.aid/memory/2026-10-21.md
+  s_6b22531e95705c::t_7dba970029a6ba 1-19
+.aid/memory/2026-10-22-jira-comment-format.md
+  s_9a4b8d387e11bb::t_cda8134efd0869 1-32
+.aid/memory/2026-10-23.md
+  s_f185c4fb37e617::t_089f82e7ec5a0d 1-17
+.aid/plans/NCLCON-13447-datetime-fix.md
+  s_e4a8db91809f6e::t_9e8446d3564562 1-257
+.aid/plans/NCLCON-13493-plan.md
+  s_89814e89f24f35::t_dd18afbcc296d9 1-69
+.aid/plans/NCLCON-13502-argus-review.md
+  s_198540db6caf42::t_0e59a578652ff5 1-84
+.aid/plans/NCLCON-13502-complexity-forecast.md
+  s_dbb7a0134525fa::t_52098e2b4b41c6 1-64
+.aid/plans/NCLCON-13502-plan.md
+  s_826e40667ed936::t_a598ea1e8327ae 1-244
+.aid/plans/NCLCON-13502-prd-handoff.json
+  s_6f54d693c3ad5a::t_9f6b155991f70d 1-77
+.aid/plans/NCLCON-13502-prd.md
+  s_6f54d693c3ad5a::t_5746d0dcc2b04c 1-95
+.aid/plans/NCLCON-13502-proof-qa.md
+  s_34355e3bf7f2b5::t_b174cdc47a053e 1-207
+.aid/plans/NCLCON-8526-av-scanning-upload.md
+  s_2bd1d7cf2e8636::t_dae77bb5100360 1-561
+.claude/agents/argus.md
+  s_710812c80929a0::t_1316652bdd675c 1-103
+.claude/agents/atlas.md
+  s_710812c80929a0::t_481d70c4c5c07d 1-123
+.claude/agents/delphi.md
+  s_710812c80929a0::t_efdbe1198777ab 1-112
+.claude/agents/forge.md
+  s_710812c80929a0::t_0a7a43bcc8cb56 1-89
+.claude/agents/herald.md
+  s_710812c80929a0::t_b591eb23a9b8fe 1-90
+.claude/agents/piper.md
+  s_710812c80929a0::t_7cdc03e06ec99b 1-111
+.claude/agents/proof.md
+  s_710812c80929a0::t_3c3a554025d359 1-98
+.claude/agents/sorty.md
+  s_d579481874044c::t_b3632025bf79da 1-100
+.cursor/hooks.json
+  s_21afd60657dbd5::t_d9484fb9c26bff 1-11
+.cursor/hooks/scripts/riper-gate-cursor.ps1
+  s_21afd60657dbd5::t_0dd8572da16700 1-72
+.cursor/hooks/scripts/riper-gate-cursor.sh
+  s_21afd60657dbd5::t_83ddae4a7b1dea 1-82
+.cursor/hooks/scripts/riper-gate.ps1
+  s_21afd60657dbd5::t_c04967b56f14e0 1-341
+.cursor/hooks/scripts/riper-gate.sh
+  s_21afd60657dbd5::t_5a5055aa901f8e 1-394
+.cursor/hooks/scripts/riper-state.sh
+  s_21afd60657dbd5::t_4dcde4c171e272 1-83
+.cursor/mcp.json
+  s_21afd60657dbd5::t_6575298e14484d 1-28
+.cursor/rules/aid.mdc
+  s_438b4abb9696e9::t_5382334cb4e0e6 1-9
+.mcp.json
+  s_21afd60657dbd5::t_4788ce5f6f4b7e 1-28
+.vscode/mcp.json
+  s_21afd60657dbd5::t_f5363400b3c42d 1-31
+AGENTS.md
+  s_438b4abb9696e9::t_59f285d9174dd3 1-37
+BOOTSTRAP.md
+  s_438b4abb9696e9::t_c59d8e0d9f09b3 1-83
+CLAUDE.md
+  s_438b4abb9696e9::t_719de52595c775 1-30
+docs/meta-repository-guide.md
+  s_78752f91efafca::t_4a8b215f630756 1-46
+docs/reflex-assistant-requirements.md
+  s_fd2f2aab4b8aad::t_ddcf8107767b7f 1-371
+docs/reflex-product-onboarding.md
+  s_78752f91efafca::t_31f58f9bbcc60a 1-45
+.aid/memory/2026-08-29.md
+  h_1598abf572c8d6 1-9
+.aid/memory/2026-08-31.md
+  h_1598abf572c8d6 1-7
+.aid/memory/2026-09-03.md
+  h_1598abf572c8d6 1-13
+.aid/memory/2026-09-18.md
+  h_1598abf572c8d6 1-24
+.aid/memory/2026-09-25.md
+  h_1598abf572c8d6 1-8
+.aid/memory/2026-10-01.md
+  h_1598abf572c8d6 1-7
+.aid/memory/2026-10-06.md
+  h_1598abf572c8d6 1-7
+.aid/memory/2026-10-07.md
+  h_1598abf572c8d6 1-12
+.aid/memory/2026-10-15.md
+  h_1598abf572c8d6 1-10
+.aid/memory/2026-10-16.md
+  h_1598abf572c8d6 1-36
+.aid/memory/2026-10-22.md
+  h_1598abf572c8d6 1-30
+.claude/hooks/scripts/pre-compact.ps1
+  h_1598abf572c8d6 1-25
+.claude/hooks/scripts/pre-compact.sh
+  h_1598abf572c8d6 1-22
+.claude/hooks/scripts/riper-gate.ps1
+  h_1598abf572c8d6 1-341
+.claude/hooks/scripts/riper-gate.sh
+  h_1598abf572c8d6 1-394
+.claude/hooks/scripts/riper-state.ps1
+  h_1598abf572c8d6 1-71
+.claude/hooks/scripts/riper-state.sh
+  h_1598abf572c8d6 1-83
+.claude/hooks/scripts/session-end.ps1
+  h_1598abf572c8d6 1-35
+.claude/hooks/scripts/session-end.sh
+  h_1598abf572c8d6 1-33
+.claude/hooks/scripts/session-start.ps1
+  h_1598abf572c8d6 1-89
+.claude/hooks/scripts/session-start.sh
+  h_1598abf572c8d6 1-97
+.claude/rules/aid-jira.md
+  h_1598abf572c8d6 1-54
+.claude/rules/endor-safety.md
+  h_1598abf572c8d6 1-15
+.claude/settings.json
+  h_1598abf572c8d6 1-52
+.claude/skills/aid-execute/SKILL.md
+  h_1598abf572c8d6 1-368
+.claude/skills/aid-impact/SKILL.md
+  h_1598abf572c8d6 1-263
+.claude/skills/aid-init/SKILL.md
+  h_1598abf572c8d6 1-383
+.claude/skills/aid-innovate/SKILL.md
+  h_1598abf572c8d6 1-248
+.claude/skills/aid-plan/SKILL.md
+  h_1598abf572c8d6 1-391
+.claude/skills/aid-qa/SKILL.md
+  h_1598abf572c8d6 1-337
+.claude/skills/aid-refresh/SKILL.md
+  h_1598abf572c8d6 1-234
+.claude/skills/aid-research/SKILL.md
+  h_1598abf572c8d6 1-360
+.claude/skills/aid-review/SKILL.md
+  h_1598abf572c8d6 1-431
+.claude/skills/aid-seed/SKILL.md
+  h_1598abf572c8d6 1-393
+.claude/skills/aid-session/SKILL.md
+  h_1598abf572c8d6 1-201
+.claude/skills/aid-ship/SKILL.md
+  h_1598abf572c8d6 1-513
+.claude/skills/aid-skill-new/SKILL.md
+  h_1598abf572c8d6 1-102
+.claude/skills/aid-skill-promote/SKILL.md
+  h_1598abf572c8d6 1-105
+.claude/skills/aid-status/SKILL.md
+  h_1598abf572c8d6 1-358
+.claude/skills/aid-upgrade/SKILL.md
+  h_1598abf572c8d6 1-182
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "21459f127e0eb8e0616ed5b901ee62f207523040",
+  "prompts": {},
+  "humans": {
+    "h_1598abf572c8d6": {
+      "author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  },
+  "sessions": {
+    "s_198540db6caf42": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-af456a2dd19536d6e",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_20519e60da5d7a": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "c5d44c10-617b-4e3f-9d0f-0f314c5cda98",
+        "model": "copilot/claude-sonnet-5.5"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_21afd60657dbd5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f366b1eb-7d4a-432e-ba2d-f329f222884c",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_2bd1d7cf2e8636": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a5cfbd6e018baaa10",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_312a531b6010ce": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b4f568dc-c2f8-4c54-bacc-2cf5e82b4a7c",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_3203759f9158be": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a3b7c0b1a97104737",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_34355e3bf7f2b5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-aaad048abbe6b02d1",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_376a931311485d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8eb80018-12f1-421f-a112-7caa53aac200",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_3d58a2c075566b": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "8ebad66c-5eff-4529-91cf-3a24618c81cc",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_438b4abb9696e9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b4b69e8b-aed9-4a39-81ac-b1c3928922af",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_5aa5e7847f38f7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "381fde09-c33f-44c0-9ce6-f7609866ef5c",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_6a8bf6ef7757fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a216f75905d02ebc5",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_6b22531e95705c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "42f0220b-6484-4aeb-b851-25b9ddbcc814",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_6f54d693c3ad5a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a62a45a05ec443b09",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_710812c80929a0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fa0f3adf-ddc9-45a7-9197-f91dc8ec718a",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_726bedb4babf1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a26782a806832ca7c",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_78752f91efafca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "49863793-b11f-4d37-8866-aeb5aa5fb5a3",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_7945fd04ea204b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a3c6878d4256e4ee0",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_826e40667ed936": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9c7650d6-b58e-46c0-9fab-7fa40ec9c783",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_82b09fd09aeab4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6b417223-1ddd-4859-a3e5-4198cc168b4e",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_89814e89f24f35": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a45f60c71b75ec28f",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_899cceb558f11f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a1d25be104ba7425b",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_9a4b8d387e11bb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5d62939d-6e8d-41f2-94b9-e8b569314ab6",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_9c6f6c342af88c": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "cfc34e43-6230-4d8a-8684-ce33c08ad3a0",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_a1d9fe1f38d29a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-ab7e57e0b3c5a85e7",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_aeb10efe88f5ee": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3b070443-e753-4df5-bec9-edd5ae1a0c07",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_b0a8fff9539d64": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-aa345cd25ba726b2f",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_c854ddd6cef9c9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f92638f2-39e8-4592-8193-05b8115fb61c",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_cade8c80b4bee8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-ad9483e64e69d4a79",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_d579481874044c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dbd6dceb-0186-451f-a0c1-86533a07db8e",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_dbb7a0134525fa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-acc0e1c10102ab081",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_e4a8db91809f6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a58712ece249392b2",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_f185c4fb37e617": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8498285e-5e08-49e9-b278-b25d47181f53",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_fa32080ad414cb": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "27a84bf2-1225-42dc-8462-46baf660e9be",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    },
+    "s_fd2f2aab4b8aad": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "646aaa1b-dd78-4a5b-9749-91c13bd143f2",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
