@@ -25,6 +25,7 @@ post-review.js    →  posts review to GitHub, updates state.json
 | `post-review.js`   | Posts a review JSON file to GitHub as a proper PR review |
 | `state.json`       | Tracks agent-reviewed PRs (auto-created; gitignored) |
 | `LOOP_PROMPT.md`   | Ready-to-paste prompt for the `/loop` command |
+| `token-report.js`  | Per-run + daily token usage of the PR auto-review automation |
 
 ---
 
@@ -60,8 +61,26 @@ node pr-review-agent/fetch-pending.js --list
 
 ### Scheduled (GitHub Copilot app)
 
-The app automation **PR auto-review** runs every 2 hours (cron `0 */2 * * *`)
-and follows `LOOP_PROMPT.md`. Manage it from the app's Automations view.
+The app automation **PR auto-review** runs every 2 hours from 10:00 to 20:00,
+Monday–Friday (cron `0 10-20/2 * * 1-5`), and follows `LOOP_PROMPT.md`.
+Manage it from the app's Automations view.
+
+### Token usage report
+
+Per-run token usage is visible in each run's details in the Automations view.
+The **PR review token report** automation (cron `30 20 * * 1-5`) runs:
+
+```bash
+node pr-review-agent/token-report.js                  # today (local time)
+node pr-review-agent/token-report.js --date 2026-10-23
+node pr-review-agent/token-report.js --no-log         # print only
+```
+
+It reads each finished review session's `session.shutdown` accounting from
+`~/.copilot/session-state/<id>/events.jsonl`, prints a per-run table with daily
+totals, and appends new runs to `~/.pr-review-agent/usage-log.csv` (outside the
+repo, since each automation run uses a throwaway worktree). Override paths with
+`COPILOT_SESSION_STATE_DIR` / `PR_REVIEW_USAGE_LOG`.
 
 ### Start the review loop (Claude Code alternative)
 
