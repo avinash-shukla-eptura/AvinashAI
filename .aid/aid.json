@@ -1,4 +1,12 @@
 {
+  "version": "0.10.1",
+  "project": "AvinashAI",
+  "initialized": "2026-09-16",
+  "tools": {
+    "claude_code": true,
+    "cursor": true,
+    "copilot": false
+  },
   "enabled": true,
   "projectKey": "NCLCON"
 }

@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "preToolUse": [
+      {
+        "command": "pwsh ./.cursor/hooks/scripts/riper-gate-cursor.ps1",
+        "failClosed": true
+      }
+    ]
+  },
+  "version": 1
+}

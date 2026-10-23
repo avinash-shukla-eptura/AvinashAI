@@ -1,0 +1,9 @@
+---
+description: "AID Protocol — persistent project context."
+alwaysApply: true
+---
+Read `.aid/PROJECT.md`, `.aid/MEMORY.md`, `.aid/CONVENTIONS.md`, `.aid/ARCHITECTURE.md`.
+Follow CONVENTIONS.md strictly. Update MEMORY.md when you learn something important.
+AID skills live in `.claude/skills/` (SKILL.md each). basic-memory + Endor + Atlassian MCP
+servers are configured in `.cursor/mcp.json`. When `jira` is enabled in `.aid/aid.json`, RIPER
+gates project a fail-open status onto Jira per `.claude/rules/aid-jira.md` — Jira never blocks work.

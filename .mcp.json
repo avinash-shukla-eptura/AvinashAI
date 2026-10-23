@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "endor-cli-tools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "endorctl@1.7.924",
+        "ai-tools",
+        "mcp-server"
+      ]
+    },
+    "basic-memory": {
+      "command": "basic-memory",
+      "args": [
+        "mcp",
+        "--project=aid-AvinashAI"
+      ]
+    },
+    "atlassian": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote@0.1.29",
+        "https://mcp.atlassian.com/v1/mcp"
+      ]
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "handoff_schema_version": 1,
+  "ticket": "NCLCON-13502",
+  "title": "Room names in format like 01-13 or 14-05 are converted to month/date in Export Room Data file",
+  "issue_type": "Bug",
+  "component": "Export",
+  "transfer_ready": false,
+  "transfer_ready_reason": "No explicit approval evidence; open questions Q1-Q3 need PM/Eng decision before planning.",
+  "posted_to_jira": false,
+  "stories": [
+    {"id": "US1", "text": "Admin sees room names exactly as in Device Hub when opening export in Excel", "sources": ["J"]},
+    {"id": "US2", "text": "Non-date-like names are unchanged", "sources": ["J", "inferred"]},
+    {"id": "US3", "text": "Desk export shows desk names exactly (conditional on Q3)", "sources": ["C2"]}
+  ],
+  "acceptance_criteria": [
+    {"id": "AC1", "text": "01-13, 06-03, 12-5, 14-05 display as text in Excel (en-US + one non-US locale); 0 of 4 shown as dates", "measurable": true},
+    {"id": "AC2", "text": "Holds for all 4 export variants and for page 2+ rows without header", "measurable": true},
+    {"id": "AC3", "text": "Non-date-like names byte-identical to pre-fix output", "measurable": true},
+    {"id": "AC4", "text": "Commas, quotes, leading zeros preserved; unit test asserts exact CSV text", "measurable": true},
+    {"id": "AC5", "text": "Technique documented in PR and covered by Generate unit test", "measurable": true},
+    {"id": "AC6", "text": "No change to other columns, Index order or header text", "measurable": true}
+  ],
+  "constraints": [
+    {"id": "C-1", "text": "Remain CSV unless Q1 selects XLSX"},
+    {"id": "C-2", "text": "No change to stored data or Device Hub UI"},
+    {"id": "C-3", "text": "Keep valid for non-Excel consumers (trade-off in Q1)"},
+    {"id": "C-4", "text": "SanitizeForInjection currently off; formula-style text-force conflicts if re-enabled"}
+  ],
+  "contradictions": [
+    {"id": "X1", "text": "Title lists 14-05, which is not a valid month-day in en-US; conversion is locale dependent", "sources": ["J"]}
+  ],
+  "open_questions": [
+    {"id": "Q1", "text": "Fix technique: conditional text-force (recommended) vs always text-force vs XLSX", "blocking": true, "owner": "PM+Eng"},
+    {"id": "Q2", "text": "Any customer integration or planned feature that re-imports or parses the room export CSV (none found in code)", "blocking": false, "owner": "PM"},
+    {"id": "Q3", "text": "Scope: Desk export, other text columns, Connect-WebApiService exporter (possibly legacy)", "blocking": true, "owner": "PM+Eng"},
+    {"id": "Q4", "text": "Exact date-like pattern list that triggers text-forcing", "blocking": true, "owner": "PM/QA"},
+    {"id": "Q5", "text": "Locale and Excel version test matrix; does 14-05 reproduce", "blocking": false, "owner": "QA"},
+    {"id": "Q6", "text": "Ticket screenshots and comments were not readable; confirm no extra guidance", "blocking": false, "owner": "PM"}
+  ],
+  "assumptions": [
+    "Users open the CSV by double-click in Excel",
+    "Name reaches Generate unmodified from the room source"
+  ],
+  "recommendation": {
+    "technique": "Conditional text-force (Excel formula-text) on Name for date-like values, implemented once in ExportRoomService.Generate or RoomExportModel so all four variants and all pages are covered",
+    "import_roundtrip": "No room CSV import found in Connect-ScreenManager, Connect-SelfService or Connect-WebApiService (only user-email BulkUserUploadHelper); risk limited to external consumers (Q2)"
+  },
+  "code_references": [
+    "D:\\DeviceHubEptura\\Connect-ScreenManager\\Condeco.Connect.ScreenManager.Services\\Rooms\\ExportRoomService.cs:61-207",
+    "D:\\DeviceHubEptura\\Connect-ScreenManager\\Condeco.Connect.ScreenManager.Models\\ExportModels\\RoomExportModel.cs",
+    "D:\\DeviceHubEptura\\Connect-ScreenManager\\Condeco.Connect.ScreenManager.Models\\ExportModels\\DeskExportModel.cs",
+    "D:\\DeviceHubEptura\\Connect-WebApiService\\Condeco.Connect.WebApiService\\Exporters\\RoomsDataExporter.cs",
+    "D:\\DeviceHubEptura\\Connect-WebApiService\\Condeco.Connect.WebApiService\\Exporters\\DesksDataExporter.cs"
+  ],
+  "acceptance_criteria_lint": {
+    "vague_terms_found": 0,
+    "all_measurable": true,
+    "notes": "Q4 pattern list and Q5 locale matrix still needed to fully fix AC1 inputs"
+  },
+  "observability_metrics": {
+    "stories": 3,
+    "acceptance_criteria": 6,
+    "open_questions": 6,
+    "contradictions": 1,
+    "evidence_gaps": [
+      "Compliance enrichment not run (atlassian, endor-cli-tools, basic-memory MCP failed to connect)",
+      "Ticket screenshots/comments unreadable",
+      "WebApiService exporter caller not confirmed (bounded search)",
+      "Desk export path in ScreenManager not traced"
+    ]
+  },
+  "markers": {
+    "PRD_DRAFT_COMPLETE": "PASSED",
+    "PRD_STORY_COUNT": 3,
+    "PRD_OPEN_QUESTIONS": 6
+  }
+}
