@@ -1,0 +1,23 @@
+pr-review-agent/README.md
+  s_4fed1161046d91::t_9a01bf19915239 3-10,61-66
+pr-review-agent/fetch-pending.js
+  s_4fed1161046d91::t_03c7c3b1e2e8de 5-6,32-33,111-112,114-115,117,120-121,133-135
+pr-review-agent/LOOP_PROMPT.md
+  s_4fed1161046d91::t_606fe956fd2a44 3-4,49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7cdf16395143baf0fcd2b0ff148a711434e3e637",
+  "prompts": {},
+  "sessions": {
+    "s_4fed1161046d91": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "7f6f1fbb-4ef8-4911-b44b-1757f34413d9",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
