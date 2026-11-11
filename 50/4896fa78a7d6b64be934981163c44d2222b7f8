@@ -1,0 +1,30 @@
+.aid/aid.json
+  s_4fed1161046d91::t_2518b4741958b1 1-4
+.cursor/rules/aidlc-dispatch.mdc
+  s_4fed1161046d91::t_a2be39384f4ad2 1-103
+docs/jira-agent-comment-format-requirements.md
+  s_4fed1161046d91::t_c21207d845f705 1-290
+docs/jira-comment-read-check.py
+  s_4fed1161046d91::t_1c345bbc6dbe56 1-92
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "504896fa78a7d6b64be934981163c44d2222b7f8",
+  "prompts": {},
+  "humans": {
+    "h_1598abf572c8d6": {
+      "author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  },
+  "sessions": {
+    "s_4fed1161046d91": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "7f6f1fbb-4ef8-4911-b44b-1757f34413d9",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
