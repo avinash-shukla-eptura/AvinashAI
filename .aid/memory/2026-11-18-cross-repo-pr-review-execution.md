@@ -6,7 +6,7 @@ plan: memory/2026-11-18-cross-repo-pr-review-plan.md
 status: complete
 files: [pr-review-agent/package.json, pr-review-agent/.gitignore, pr-review-agent/systems.json, pr-review-agent/lib/gh.js, pr-review-agent/lib/git.js, pr-review-agent/lib/systems.js, pr-review-agent/lib/signals.js, pr-review-agent/lib/sync.js, pr-review-agent/lib/map.js, pr-review-agent/lib/search.js, pr-review-agent/lib/cache.js, pr-review-agent/lib/ledger.js, pr-review-agent/lib/gate.js, pr-review-agent/lib/render.js, pr-review-agent/build-system-map.js, pr-review-agent/system-context.js, pr-review-agent/post-system-review.js, pr-review-agent/test/systems.test.js, pr-review-agent/test/signals.test.js, pr-review-agent/test/map.test.js, pr-review-agent/test/search.test.js, pr-review-agent/test/gate.test.js, pr-review-agent/test/render.test.js, pr-review-agent/LOOP_PROMPT.md, pr-review-agent/README.md, .aid/ARCHITECTURE.md, .aid/CONVENTIONS.md, .aid/COVERAGE.md]
 confidence: high
-related: [.aid/memory/2026-11-18-cross-repo-pr-review-plan.md, .aid/memory/2026-11-18-innovate-cross-repo-pr-review.md, .aid/memory/2026-11-20-cross-repo-pr-review-review.md, .aid/memory/2026-11-20-cross-repo-pr-review-qa.md]
+related: [.aid/memory/2026-11-18-cross-repo-pr-review-plan.md, .aid/memory/2026-11-18-innovate-cross-repo-pr-review.md, .aid/memory/2026-11-20-cross-repo-pr-review-review.md, .aid/memory/2026-11-20-cross-repo-pr-review-qa.md, .aid/memory/2026-11-20-cross-repo-pr-review-ship.md]
 ---
 
 # Execution: System-aware PR review (pass 2) — rollout phases 1-2

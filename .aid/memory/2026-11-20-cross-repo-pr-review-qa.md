@@ -7,7 +7,7 @@ verdict: PASS
 acceptance_criteria: 5/5 (after Amendment 1 re-test)
 tests_authored: [pr-review-agent/test/ledger.test.js, pr-review-agent/test/cache.test.js, pr-review-agent/test/sync.test.js, pr-review-agent/test/systems.test.js]
 confidence: high
-related: [memory/2026-11-18-cross-repo-pr-review-plan.md, memory/2026-11-18-cross-repo-pr-review-execution.md, memory/2026-11-20-cross-repo-pr-review-review.md]
+related: [memory/2026-11-18-cross-repo-pr-review-plan.md, memory/2026-11-18-cross-repo-pr-review-execution.md, memory/2026-11-20-cross-repo-pr-review-review.md, memory/2026-11-20-cross-repo-pr-review-ship.md]
 jira: none
 ---
 

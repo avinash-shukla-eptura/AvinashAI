@@ -6,7 +6,7 @@ target: pr-review-agent pass 2 (system-context.js, post-system-review.js, build-
 verdict: APPROVE
 conformance: MATCHES PLAN
 confidence: high
-related: [memory/2026-11-18-cross-repo-pr-review-plan.md, memory/2026-11-18-cross-repo-pr-review-execution.md]
+related: [memory/2026-11-18-cross-repo-pr-review-plan.md, memory/2026-11-18-cross-repo-pr-review-execution.md, memory/2026-11-20-cross-repo-pr-review-ship.md]
 ---
 
 # Review: System-aware PR review (pass 2), phases 1-2
