@@ -42,6 +42,7 @@ Compiled knowledge index. Detailed entries live in `.aid/memory/*.md`.
 - **QA: Reflex per-user PAT (2026-10-06)** — BLOCKED (targeted tests green x2, env gates not runnable); one defect found and fixed. → memory/2026-10-06-reflex-per-user-pat-qa.md
 - **Ship: Reflex per-user PAT (2026-10-07)** — DRAFT PRs reflex-platform PR 140 + reflex-harness PR 45, QA BLOCKED, user override. → memory/2026-10-07-reflex-per-user-pat-ship.md
 - **Ship: Reflex commit identity (2026-10-14)** — DRAFT PRs reflex-platform 149, ai-registry 78, reflex-harness 47; merge order platform, registry, harness. → memory/2026-10-14-reflex-commit-identity-ship.md
+- **Ship: System-aware PR review pass 2 (2026-11-20)** — PR #5, 20/20 tests, QA PASS 5/5, silent mode. → memory/2026-11-20-cross-repo-pr-review-ship.md
 - **Plan: Reflex commit identity = Jira assignee (2026-10-14)** — AIC-295, Approach 1 (registry input + harness overlay + trailer), 3 PRs platform then registry then harness. → memory/2026-10-14-reflex-commit-identity-plan.md
 - **Plan: Reflex per-user PAT (2026-10-06)** — Approach 1: run-scoped credential fetch + harness ContextVar overlay; platform + harness only, PRs to `develop`. → `memory/2026-10-06-reflex-per-user-pat-plan.md`
 
