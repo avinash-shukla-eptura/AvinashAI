@@ -15,6 +15,21 @@ Compiled knowledge index. Detailed entries live in `.aid/memory/*.md`.
 - `post-review.js` falls back to a body-only review (with rejected comments quoted inline)
   rather than silently dropping feedback when GitHub rejects inline comment line numbers.
 
+## Decisions
+- **Decision: system-aware PR review (2026-11-18)** — chose Two-Pass Review (repo pass + meta-repo system pass) with gap systems 1-9. Grounded cross-repo gaps without destabilising existing reviews. → memory/2026-11-18-innovate-cross-repo-pr-review.md
+
+## Plans
+- **Plan: System-aware PR review phases 1-2 (2026-11-18)** — Approach A: deterministic evidence pipeline + Copilot judgment, code-enforced evidence gate, silent mode. → memory/2026-11-18-cross-repo-pr-review-plan.md
+
+## Executions
+- **Execution: System-aware PR review phases 1-2 (2026-11-18)** — complete (31/31 + Amendment 1 item 32, 20 tests green, silent smoke on Connect-ReportService#99). → memory/2026-11-18-cross-repo-pr-review-execution.md
+
+## Reviews
+- **Review: System-aware PR review pass 2 (2026-11-20)** — APPROVE + MATCHES PLAN. Two must-fix items before `post` mode: review/bundle identity not cross-checked, and a `missing` map can still post. → memory/2026-11-20-cross-repo-pr-review-review.md
+
+## QA
+- **QA: System-aware PR review pass 2 (2026-11-20)** — PASS 5/5 after re-test. The first run failed AC3 because `findMetaRoot` picked the empty `copilot-worktrees\devicehub-meta` container. Fixed by requiring `.gitmodules` (plan Amendment 1). → memory/2026-11-20-cross-repo-pr-review-qa.md
+
 ## Investigation History
 - 2026-09-04 — Copilot's own review comments on PR #2 fixed in one commit: diff-metadata-line
   handling in `parseAddedLines()`, missing API pagination (>30 files), silently-dropped inline

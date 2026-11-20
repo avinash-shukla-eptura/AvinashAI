@@ -47,6 +47,28 @@ post-review.js  -- gh api repos/{repo}/pulls/{number}/reviews (POST)
 state.json updated (reviewedPRs["owner/repo#N"] = ISO timestamp) so the PR isn't re-reviewed
 ```
 
+### pr-review-agent/ pass 2 — system review (LOOP_PROMPT.md Step 4, after pass 1 posts)
+```
+systems.json + <meta>/.gitmodules  -- route PR repo -> system (devicehub-meta | reflex-meta);
+        |                              meta root via PR_REVIEW_META_ROOT or walking up ancestors
+        v
+system-context.js -- gh pr diff -> lib/signals.js (routes, SB topics, Cosmos, packages, models,
+        |             env, config/migration files; added AND removed lines). No signals -> stop.
+        |             lib/sync.js: git fetch origin <branch> per submodule (read-only, throttled)
+        |             lib/map.js: <meta>/.aid/system-map.json, rebuilt by build-system-map.js if stale
+        |             lib/search.js: git grep -F of signal values in sibling repos (origin/<branch>)
+        |             -> evidence bundle, cached in cache/ by sha1(repo#n@sha|mapGeneratedAt)
+        v
+Copilot judges cross-repo gaps from the bundle only -> system-review-<number>.json
+        v
+post-system-review.js -- lib/gate.js: schema + evidence gate (citations must match siblingHits)
+        |                 lib/ledger.js: gap-ledger.jsonl (open | dropped-no-evidence)
+        |                 posts COMMENT review (lib/render.js, citations only) ONLY if mode=post,
+        |                 map not stale, and >= 1 kept finding; both systems are `silent` for now
+        v
+state.json systemReviewedPRs["owner/repo#N"] = {commitSha, at, kept, dropped, mode}
+```
+
 ## Key Decisions (verified from code/commit history)
 - Uses the **GitHub Copilot CLI as the reviewing model**, not a direct Anthropic/OpenAI API call —
   avoids needing a separate API key (README.md; the `@anthropic-ai/sdk` dependency was
