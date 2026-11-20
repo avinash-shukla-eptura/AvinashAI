@@ -15,9 +15,11 @@
   paths were explicitly removed as a review fix (commit `a1310ad8`).
 
 ## Testing
-- No test framework is installed (no jest/mocha/vitest in `package.json`, no test files found).
-  See `.aid/COVERAGE.md`.
-- DO NOT assume an `npm test` script exists — there isn't one.
+- `pr-review-agent/` uses Node's built-in `node:test` + `node:assert/strict` — zero test
+  dependencies. Run with `cd pr-review-agent; npm test` (`node --test "test/*.test.js"`).
+- DO put tests in `pr-review-agent/test/<module>.test.js` and keep logic testable by exporting
+  pure functions from `lib/` modules (no `gh`/`git` calls in tested functions).
+- Pass 1 (`fetch-pending.js`, `post-review.js`) is still untested — see `.aid/COVERAGE.md`.
 
 ## Git
 - Commit style: `type: short imperative summary` (`feat:`, `fix:`) with a bullet-point body

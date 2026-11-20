@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "fetch": "node fetch-pending.js",
-    "list": "node fetch-pending.js --list"
+    "list": "node fetch-pending.js --list",
+    "test": "node --test \"test/*.test.js\""
   }
 }
