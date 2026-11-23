@@ -1,0 +1,19 @@
+.aid/MEMORY.md
+  s_08c42061eef749::t_41c6b5783cac44 45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9ab0b2dc2c310db855eb28cf512f018e4770dedb",
+  "prompts": {},
+  "sessions": {
+    "s_08c42061eef749": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "c23b40ea-1059-436c-b3cf-9bfa2b049d5b",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
