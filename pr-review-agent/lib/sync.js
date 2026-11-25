@@ -5,7 +5,7 @@
  * only `git fetch origin <branch>` per initialized submodule. Searches then
  * run against the fetched `origin/<branch>` (or `origin/HEAD` for branchless
  * submodules) tree-ish, falling back to HEAD.
- * Throttled per system via cache/sync-<id>.json.
+ * Throttled per system via <DATA_DIR>/cache/sync-<id>.json.
  */
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';

@@ -31,7 +31,7 @@ post-review.js    →  posts review to GitHub, updates state.json
 | `system-context.js`   | Pass 2 evidence bundle for one PR (signals + sibling hits + map context) |
 | `post-system-review.js` | Evidence-gates Copilot's system findings, writes the ledger, posts only in `post` mode |
 | `lib/`, `test/`    | Shared pass-2 modules and `node:test` unit tests |
-| `gap-ledger.jsonl`, `cache/` | Pass 2 runtime output (auto-created; gitignored) |
+| `~/.pr-review-agent/gap-ledger.jsonl`, `~/.pr-review-agent/cache/` | Pass 2 runtime output (auto-created outside the repo; see Runtime files) |
 
 ---
 
@@ -77,9 +77,11 @@ post-system-review.js →  evidence gate (citations must match sibling hits)
   findings to `gap-ledger.jsonl` only; `post` also posts a `COMMENT` review when
   at least one finding survives the evidence gate. Posted bodies cite
   `repo:path:line` only, never quoted code.
-- **Runtime files** — `gap-ledger.jsonl` (all findings, `open` or
-  `dropped-no-evidence`), `cache/` (evidence bundles, sync throttle) and
-  `state.json` → `systemReviewedPRs`. All gitignored.
+- **Runtime files** — kept in `~/.pr-review-agent/` (override with
+  `PR_REVIEW_DATA_DIR`) so they survive the throwaway worktrees the scheduled
+  automation runs in: `gap-ledger.jsonl` (all findings, `open` or
+  `dropped-no-evidence`) and `cache/` (evidence bundles, sync throttle).
+  `state.json` → `systemReviewedPRs` stays in `pr-review-agent/` (gitignored).
 
 ### Tests
 

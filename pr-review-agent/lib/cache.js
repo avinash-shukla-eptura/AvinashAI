@@ -3,15 +3,15 @@
  *
  * Evidence-bundle cache keyed by sha1(repo#number@headSha|mapGeneratedAt|syncedAt),
  * so sibling evidence expires at every sync boundary.
- * Files live under pr-review-agent/cache/ (gitignored).
+ * Files live under <DATA_DIR>/cache/ (see lib/paths.js).
  */
 
 import { createHash }  from 'crypto';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
-import { join, dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { join } from 'path';
+import { DATA_DIR } from './paths.js';
 
-export const CACHE_DIR = join(resolve(dirname(fileURLToPath(import.meta.url)), '..'), 'cache');
+export const CACHE_DIR = join(DATA_DIR, 'cache');
 
 // ─── Cache ────────────────────────────────────────────────────────────────────
 

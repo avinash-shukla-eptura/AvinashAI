@@ -7,11 +7,11 @@
  */
 
 import { createHash } from 'crypto';
-import { appendFileSync, readFileSync, existsSync } from 'fs';
-import { join, dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { appendFileSync, readFileSync, existsSync, mkdirSync } from 'fs';
+import { join, dirname } from 'path';
+import { DATA_DIR } from './paths.js';
 
-export const LEDGER_FILE = join(resolve(dirname(fileURLToPath(import.meta.url)), '..'), 'gap-ledger.jsonl');
+export const LEDGER_FILE = join(DATA_DIR, 'gap-ledger.jsonl');
 
 // ─── Ledger ───────────────────────────────────────────────────────────────────
 
@@ -23,6 +23,7 @@ export const findingId = (prKey, finding) =>
 
 export const appendLedger = (entries, file = LEDGER_FILE) => {
   if (!entries.length) return;
+  mkdirSync(dirname(file), { recursive: true });
   appendFileSync(file, entries.map(e => JSON.stringify(e)).join('\n') + '\n');
 };
 
