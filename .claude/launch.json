@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "glasshouse-v2-sample",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "D:/DeviceHubEptura/reflex-glasshouse-ui-tour"],
+      "port": 5191,
+      "url": "http://127.0.0.1:5191"
+    },
+    {
+      "name": "glasshouse-v2-develop",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd /d D:\\DeviceHubEptura\\reflex-glasshouse && npx vite --port 5192 --host 127.0.0.1 --strictPort"],
+      "port": 5192,
+      "url": "http://127.0.0.1:5192"
+    }
+  ]
+}

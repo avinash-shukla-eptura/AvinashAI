@@ -46,6 +46,23 @@ Compiled knowledge index. Detailed entries live in `.aid/memory/*.md`.
 - **Plan: Reflex commit identity = Jira assignee (2026-10-14)** — AIC-295, Approach 1 (registry input + harness overlay + trailer), 3 PRs platform then registry then harness. → memory/2026-10-14-reflex-commit-identity-plan.md
 - **Plan: Reflex per-user PAT (2026-10-06)** — Approach 1: run-scoped credential fetch + harness ContextVar overlay; platform + harness only, PRs to `develop`. → `memory/2026-10-06-reflex-per-user-pat-plan.md`
 
+## Plans
+
+- **Plan: AID v1 portable skills, v0.10.2 (2026-11-17)** — Approach 1: keep layout, fix skill `name`==folder, drop `claude` gate on skills/hooks, OS-aware state helper, AGENTS.md skill paths; Approach 2 (v0.11.0) deferred. → memory/2026-11-17-aid-portable-skills-v0102-plan.md
+- **Plan: AID v1 tool-agnostic layout, v0.11.0 (2026-10-30)** — Approach: committed `.aid/bin/aid-sync.{sh,ps1}` generates per-tool folders (gitignored by default); v1 `eptura/aid-protocol` only, never v2. → memory/2026-10-30-aid-tool-agnostic-v1-plan.md
+
+## Executions
+
+- **Execution: AID v1 portable skills v0.10.2 (2026-11-17)** — complete, uncommitted on `fix/v0.10.2-portable-skills`, PR pending; Windows installer verified without claude. → memory/2026-11-17-aid-portable-skills-v0102-execution.md
+
+## Reviews
+
+- **Review: AID v0.10.2 portable skills (2026-11-17)** — REQUEST CHANGES; conformance incomplete, no deviations; `.claude/rules/*` still claude-gated in both installers (fixed, items 22-25). → memory/2026-11-17-aid-portable-skills-v0102-review.md
+
+## Ships
+
+- **Ship: AID usable without Claude Code v0.10.2 (2026-11-17)** — PR: https://github.com/eptura/aid-protocol/pull/49, CI green (push + PR runs); QA skipped by user, Endor unavailable. → memory/2026-11-17-aid-portable-skills-v0102-ship.md
+
 ## Seeded from Git History (auto-generated)
 Full history is only 4 commits (2026-08-18 -> 2026-09-08) across 3 tracked top-level dirs
 (`.aid/`, `.cursor/`, `pr-review-agent/`) — every commit was already analyzed during
