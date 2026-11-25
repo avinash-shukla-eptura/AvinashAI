@@ -15,6 +15,21 @@ Compiled knowledge index. Detailed entries live in `.aid/memory/*.md`.
 - `post-review.js` falls back to a body-only review (with rejected comments quoted inline)
   rather than silently dropping feedback when GitHub rejects inline comment line numbers.
 
+## Decisions
+- **Decision: system-aware PR review (2026-11-18)** — chose Two-Pass Review (repo pass + meta-repo system pass) with gap systems 1-9. Grounded cross-repo gaps without destabilising existing reviews. → memory/2026-11-18-innovate-cross-repo-pr-review.md
+
+## Plans
+- **Plan: System-aware PR review phases 1-2 (2026-11-18)** — Approach A: deterministic evidence pipeline + Copilot judgment, code-enforced evidence gate, silent mode. → memory/2026-11-18-cross-repo-pr-review-plan.md
+
+## Executions
+- **Execution: System-aware PR review phases 1-2 (2026-11-18)** — complete (31/31 + Amendment 1 item 32, 20 tests green, silent smoke on Connect-ReportService#99). → memory/2026-11-18-cross-repo-pr-review-execution.md
+
+## Reviews
+- **Review: System-aware PR review pass 2 (2026-11-20)** — APPROVE + MATCHES PLAN. Two must-fix items before `post` mode: review/bundle identity not cross-checked, and a `missing` map can still post. → memory/2026-11-20-cross-repo-pr-review-review.md
+
+## QA
+- **QA: System-aware PR review pass 2 (2026-11-20)** — PASS 5/5 after re-test. The first run failed AC3 because `findMetaRoot` picked the empty `copilot-worktrees\devicehub-meta` container. Fixed by requiring `.gitmodules` (plan Amendment 1). → memory/2026-11-20-cross-repo-pr-review-qa.md
+
 ## Investigation History
 - 2026-09-04 — Copilot's own review comments on PR #2 fixed in one commit: diff-metadata-line
   handling in `parseAddedLines()`, missing API pagination (>30 files), silently-dropped inline
@@ -27,6 +42,7 @@ Compiled knowledge index. Detailed entries live in `.aid/memory/*.md`.
 - **QA: Reflex per-user PAT (2026-10-06)** — BLOCKED (targeted tests green x2, env gates not runnable); one defect found and fixed. → memory/2026-10-06-reflex-per-user-pat-qa.md
 - **Ship: Reflex per-user PAT (2026-10-07)** — DRAFT PRs reflex-platform PR 140 + reflex-harness PR 45, QA BLOCKED, user override. → memory/2026-10-07-reflex-per-user-pat-ship.md
 - **Ship: Reflex commit identity (2026-10-14)** — DRAFT PRs reflex-platform 149, ai-registry 78, reflex-harness 47; merge order platform, registry, harness. → memory/2026-10-14-reflex-commit-identity-ship.md
+- **Ship: System-aware PR review pass 2 (2026-11-20)** — PR #5, 20/20 tests, QA PASS 5/5, silent mode. → memory/2026-11-20-cross-repo-pr-review-ship.md
 - **Plan: Reflex commit identity = Jira assignee (2026-10-14)** — AIC-295, Approach 1 (registry input + harness overlay + trailer), 3 PRs platform then registry then harness. → memory/2026-10-14-reflex-commit-identity-plan.md
 - **Plan: Reflex per-user PAT (2026-10-06)** — Approach 1: run-scoped credential fetch + harness ContextVar overlay; platform + harness only, PRs to `develop`. → `memory/2026-10-06-reflex-per-user-pat-plan.md`
 

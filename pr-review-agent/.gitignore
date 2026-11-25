@@ -4,3 +4,6 @@ state.json
 .tmp_post_payload.json
 review-*.json
 .env
+gap-ledger.jsonl
+cache/
+system-review-*.json

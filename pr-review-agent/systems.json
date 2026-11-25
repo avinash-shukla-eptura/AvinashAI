@@ -1,0 +1,20 @@
+{
+  "systems": {
+    "devicehub": {
+      "metaRepo": "devicehub-meta",
+      "stack": "dotnet",
+      "mode": "silent",
+      "warnAfterDays": 7,
+      "ledgerOnlyAfterDays": 30,
+      "syncThrottleMinutes": 60
+    },
+    "reflex": {
+      "metaRepo": "reflex-meta",
+      "stack": "python",
+      "mode": "silent",
+      "warnAfterDays": 7,
+      "ledgerOnlyAfterDays": 30,
+      "syncThrottleMinutes": 60
+    }
+  }
+}
