@@ -3,7 +3,8 @@
  *
  * Read-only sync of a system's meta checkout. NEVER mutates working trees:
  * only `git fetch origin <branch>` per initialized submodule. Searches then
- * run against the fetched `origin/<branch>` tree-ish (fallback HEAD).
+ * run against the fetched `origin/<branch>` (or `origin/HEAD` for branchless
+ * submodules) tree-ish, falling back to HEAD.
  * Throttled per system via cache/sync-<id>.json.
  */
 
@@ -13,12 +14,15 @@ import { runGit } from './git.js';
 
 // ─── Refs ─────────────────────────────────────────────────────────────────────
 
-export const refFor = (sub) => {
-  if (sub.branch && runGit(sub.absPath, ['rev-parse', '--verify', '--quiet', `origin/${sub.branch}`]) !== null) {
-    return `origin/${sub.branch}`;
-  }
-  return 'HEAD';
+// Pure: picks the first resolvable candidate. Branchless submodules prefer the
+// fetched remote default (origin/HEAD) because fetch never advances local HEAD.
+export const pickRef = (branch, resolves) => {
+  const candidates = branch ? [`origin/${branch}`] : ['origin/HEAD'];
+  return candidates.find(resolves) ?? 'HEAD';
 };
+
+export const refFor = (sub) =>
+  pickRef(sub.branch, (ref) => runGit(sub.absPath, ['rev-parse', '--verify', '--quiet', ref]) !== null);
 
 // ─── Sync ─────────────────────────────────────────────────────────────────────
 

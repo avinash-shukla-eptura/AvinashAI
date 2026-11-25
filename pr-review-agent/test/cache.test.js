@@ -11,3 +11,9 @@ test('cacheKey is deterministic and changes with head sha or map version', () =>
   assert.notEqual(cacheKey(base), cacheKey({ ...base, mapGeneratedAt: '2026-11-19T00:00:00Z' }));
   assert.notEqual(cacheKey(base), cacheKey({ ...base, mapGeneratedAt: undefined }));
 });
+
+test('cacheKey expires at each sync boundary', () => {
+  const synced = { ...base, syncedAt: '2026-11-20T10:00:00Z' };
+  assert.notEqual(cacheKey(synced), cacheKey({ ...synced, syncedAt: '2026-11-20T11:00:00Z' }));
+  assert.notEqual(cacheKey(synced), cacheKey(base));
+});

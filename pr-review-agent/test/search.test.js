@@ -1,6 +1,9 @@
 import { test }   from 'node:test';
 import assert     from 'node:assert/strict';
-import { parseGrepLine } from '../lib/search.js';
+import { mkdtempSync, rmSync } from 'fs';
+import { join }   from 'path';
+import { tmpdir } from 'os';
+import { parseGrepLine, searchSiblings } from '../lib/search.js';
 
 test('parseGrepLine strips ref prefix and parses path/line/text', () => {
   assert.deepEqual(
@@ -23,4 +26,16 @@ test('parseGrepLine returns null for non-match lines', () => {
 test('parseGrepLine keeps full text so long lines are not truncated for map extraction', () => {
   const long = 'x'.repeat(250) + ' [HttpGet("late/route")]';
   assert.equal(parseGrepLine(`HEAD:src/A.cs:1:${long}`, 'HEAD').text, long);
+});
+
+test('searchSiblings reports a failed grep as unavailable, not searched', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'notgit-'));
+  try {
+    const ctx = { submodules: [{ name: 'Broken', fullName: 'o/broken', initialized: true, absPath: dir }] };
+    const r = searchSiblings({ ctx, excludeFullName: 'o/self', values: ['booking-events'] });
+    assert.deepEqual(r.unavailable, ['o/broken']);
+    assert.deepEqual(r.searchedRepos, []);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });

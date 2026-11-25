@@ -37,6 +37,8 @@ export const searchSiblings = ({ ctx, excludeFullName, values, maxValues = 20, m
     const ref = refFor(sub);
     const argv = ['grep', '-n', '-I', '-F', ...vals.flatMap(v => ['-e', v]), ref];
     const out = runGit(sub.absPath, argv, { allowExit1: true });
+    // null = grep failed (coverage gap); '' = searched, no matches
+    if (out === null) { result.unavailable.push(sub.fullName ?? sub.name); continue; }
     result.searchedRepos.push(sub.fullName ?? sub.name);
     if (!out) continue;
     for (const raw of out.split('\n')) {

@@ -3,7 +3,7 @@ import assert     from 'node:assert/strict';
 import { mkdtempSync, rmSync } from 'fs';
 import { join }   from 'path';
 import { tmpdir } from 'os';
-import { syncSystem } from '../lib/sync.js';
+import { syncSystem, pickRef } from '../lib/sync.js';
 
 const ctx = { id: 'demo', submodules: [{ name: 'Missing', initialized: false }] };
 
@@ -24,4 +24,12 @@ test('syncSystem throttles within the window and re-syncs after it', () => {
   } finally {
     rmSync(cacheDir, { recursive: true, force: true });
   }
+});
+
+test('pickRef prefers origin/<branch>, then origin/HEAD for branchless, then HEAD', () => {
+  const only = (...ok) => (ref) => ok.includes(ref);
+  assert.equal(pickRef('main', only('origin/main', 'origin/HEAD')), 'origin/main');
+  assert.equal(pickRef(null, only('origin/HEAD')), 'origin/HEAD');
+  assert.equal(pickRef(undefined, only()), 'HEAD');
+  assert.equal(pickRef('gone', only('origin/HEAD')), 'HEAD');
 });

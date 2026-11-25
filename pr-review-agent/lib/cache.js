@@ -1,7 +1,8 @@
 /**
  * lib/cache.js
  *
- * Evidence-bundle cache keyed by sha1(repo#number@headSha|mapGeneratedAt).
+ * Evidence-bundle cache keyed by sha1(repo#number@headSha|mapGeneratedAt|syncedAt),
+ * so sibling evidence expires at every sync boundary.
  * Files live under pr-review-agent/cache/ (gitignored).
  */
 
@@ -14,8 +15,8 @@ export const CACHE_DIR = join(resolve(dirname(fileURLToPath(import.meta.url)), '
 
 // ─── Cache ────────────────────────────────────────────────────────────────────
 
-export const cacheKey = ({ repo, number, commitSha, mapGeneratedAt }) =>
-  createHash('sha1').update(`${repo}#${number}@${commitSha}|${mapGeneratedAt ?? 'none'}`).digest('hex');
+export const cacheKey = ({ repo, number, commitSha, mapGeneratedAt, syncedAt }) =>
+  createHash('sha1').update(`${repo}#${number}@${commitSha}|${mapGeneratedAt ?? 'none'}|${syncedAt ?? 'none'}`).digest('hex');
 
 export const readCache = (key) => {
   const f = join(CACHE_DIR, `${key}.json`);

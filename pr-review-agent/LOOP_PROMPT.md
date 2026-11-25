@@ -71,7 +71,7 @@ node pr-review-agent/system-context.js --repo <pr.repo> --number <pr.number> --s
 ```
 
 Parse the JSON. If `status` is not `ok` (e.g. `unrouted`, `meta-unavailable`,
-`no-signals`), print `[system] <repo>#<number>: <status>` and move on.
+`head-moved`, `no-signals`), print `[system] <repo>#<number>: <status>` and move on.
 
 If `status` is `ok`, judge cross-repo gaps using ONLY these bundle fields:
 `signals`, `siblingHits`, `neighbours`, `mapSummary`, `knowledgeExcerpt`.
