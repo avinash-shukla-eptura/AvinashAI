@@ -41,6 +41,12 @@ export const GREP_KEYWORDS = {
   python: ['@app.', '@router.', 'BaseModel', 'BaseSettings', 'environ', 'getenv'],
 };
 
+// Diff-only: changed leaf keys in JSON config files become searchable signals
+// (a key opening an object/array is structure, not a setting).
+export const CONFIG_FILES = /(appsettings.*|local\.settings)\.json$/i;
+const CONFIG_KEY = /^\s*"([A-Za-z_][\w.:-]*)"\s*:\s*(?![\s{[])/;
+const MAX_SOURCE = 200;
+
 // ─── Extraction ───────────────────────────────────────────────────────────────
 
 export const extractFromLine = (line, stack) => {
@@ -56,8 +62,10 @@ export const extractFromLine = (line, stack) => {
 export const extractFromDiff = (diff, stack) => {
   const out = [];
   const seen = new Set();
+  // `source` keeps old/new detail (GET vs POST, package version, setting value)
+  // and is part of the dedupe key so distinct contracts sharing a value survive.
   const push = (s) => {
-    const k = `${s.kind}|${s.value}|${s.change}|${s.file}`;
+    const k = `${s.kind}|${s.value}|${s.change}|${s.file}|${s.source ?? ''}`;
     if (!seen.has(k)) { seen.add(k); out.push(s); }
   };
   let file = null;
@@ -73,7 +81,10 @@ export const extractFromDiff = (diff, stack) => {
     if (line.startsWith('+++') || line.startsWith('---')) continue;
     const change = line.startsWith('+') ? 'added' : line.startsWith('-') ? 'removed' : null;
     if (!change || !file) continue;
-    for (const s of extractFromLine(line.slice(1), stack)) push({ ...s, change, file });
+    const source = line.slice(1).trim().slice(0, MAX_SOURCE);
+    for (const s of extractFromLine(line.slice(1), stack)) push({ ...s, change, file, source });
+    const key = CONFIG_FILES.test(file) && line.slice(1).match(CONFIG_KEY);
+    if (key) push({ kind: 'config-key', value: key[1], role: 'uses', change, file, source });
   }
   return out;
 };

@@ -67,11 +67,12 @@ post-system-review.js →  evidence gate (citations must match sibling hits)
   ```
   Writes `.aid/system-map.json` + `.aid/system-map.md` into the meta repo
   (commit them there via a normal PR). `system-context.js` rebuilds the map
-  automatically when it is older than `warnAfterDays`; if it is older than
+  automatically when it is older than `warnAfterDays` (skipped if any submodule
+  fetch failed, so outdated refs are never stamped fresh); if it is older than
   `ledgerOnlyAfterDays` and cannot be rebuilt, findings are ledger-only.
 - **Trigger filter** — PRs whose diff has no contract signals (routes, Service
-  Bus topics, Cosmos containers, packages, models, env vars, config/migration
-  files) return `no-signals` and skip pass 2.
+  Bus topics, Cosmos containers, packages, models, env vars, changed config keys,
+  config/migration files) return `no-signals` and skip pass 2.
 - **Modes** — `mode` per system in `systems.json`. `silent` (default) writes
   findings to `gap-ledger.jsonl` only; `post` also posts a `COMMENT` review when
   at least one finding survives the evidence gate. Posted bodies cite

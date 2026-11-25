@@ -29,9 +29,10 @@ export const refFor = (sub) =>
 export const syncSystem = (ctx, { cacheDir, throttleMinutes = 60, now = new Date() }) => {
   const marker = join(cacheDir, `sync-${ctx.id}.json`);
   if (existsSync(marker)) {
-    const { lastSyncAt } = JSON.parse(readFileSync(marker, 'utf8'));
+    // Reuse the last real sync's failures: a throttled run did not retry them.
+    const { lastSyncAt, failed = [], unavailable = [] } = JSON.parse(readFileSync(marker, 'utf8'));
     if (now - new Date(lastSyncAt) < throttleMinutes * 60_000) {
-      return { skipped: true, lastSyncAt, fetched: 0, failed: [], unavailable: [] };
+      return { skipped: true, lastSyncAt, fetched: 0, failed, unavailable };
     }
   }
   const result = { skipped: false, lastSyncAt: now.toISOString(), fetched: 0, failed: [], unavailable: [] };
@@ -42,6 +43,7 @@ export const syncSystem = (ctx, { cacheDir, throttleMinutes = 60, now = new Date
     else result.fetched++;
   }
   mkdirSync(cacheDir, { recursive: true });
-  writeFileSync(marker, JSON.stringify({ lastSyncAt: result.lastSyncAt }, null, 2));
+  const { lastSyncAt, failed, unavailable } = result;
+  writeFileSync(marker, JSON.stringify({ lastSyncAt, failed, unavailable }, null, 2));
   return result;
 };

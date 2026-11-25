@@ -75,6 +75,8 @@ Parse the JSON. If `status` is not `ok` (e.g. `unrouted`, `meta-unavailable`,
 
 If `status` is `ok`, judge cross-repo gaps using ONLY these bundle fields:
 `signals`, `siblingHits`, `neighbours`, `mapSummary`, `knowledgeExcerpt`.
+Each signal's `source` is the changed line; pair `removed`/`added` signals in the
+same file to see what actually changed (e.g. GET→POST, a version bump, a setting value).
 Look for: contract breaks (a removed/changed route, topic, package or model that
 siblings still use), missing counterparts (new producer with no consumer or vice
 versa), config drift and schema drift. Do not read other repos yourself.

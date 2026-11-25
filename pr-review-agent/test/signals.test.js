@@ -71,3 +71,32 @@ test('GREP_KEYWORDS prefilter matches every line extractFromLine recognizes', ()
     }
   }
 });
+
+test('config-only diff yields changed leaf keys with old/new source', () => {
+  const diff = `diff --git a/src/appsettings.json b/src/appsettings.json
+--- a/src/appsettings.json
++++ b/src/appsettings.json
+@@ -1,4 +1,4 @@
+   "Values": {
+-    "RetryCount": 3,
++    "RetryCount": 5,
++    "Nested": {
+`;
+  const keys = extractFromDiff(diff, 'dotnet').filter(x => x.kind === 'config-key');
+  assert.deepEqual(keys.map(k => `${k.change}:${k.value}:${k.source}`),
+    ['removed:RetryCount:"RetryCount": 3,', 'added:RetryCount:"RetryCount": 5,']);
+});
+
+test('GET->POST on the same route keeps both distinct signals with source', () => {
+  const diff = `diff --git a/src/C.cs b/src/C.cs
+--- a/src/C.cs
++++ b/src/C.cs
+@@ -1,1 +1,1 @@
+-[HttpGet("rooms")]
++[HttpPost("rooms")]
++[HttpPut("rooms")]
+`;
+  const r = extractFromDiff(diff, 'dotnet').filter(x => x.value === 'rooms');
+  assert.deepEqual(r.map(x => `${x.change}:${x.source}`),
+    ['removed:[HttpGet("rooms")]', 'added:[HttpPost("rooms")]', 'added:[HttpPut("rooms")]']);
+});

@@ -73,7 +73,12 @@ const main = () => {
   const thresholds = { warnAfterDays: system.warnAfterDays, ledgerOnlyAfterDays: system.ledgerOnlyAfterDays };
   let map = loadMap(ctx.metaPath);
   let mapRebuildError = null;
-  if (mapStatus(mapAgeDays(map), thresholds) !== 'fresh') {
+  if (sync.failed.length) {
+    // Old remote refs may still be readable; rebuilding would stamp outdated contracts fresh.
+    if (mapStatus(mapAgeDays(map), thresholds) !== 'fresh') {
+      mapRebuildError = `rebuild skipped: fetch failed for ${sync.failed.join(', ')}`;
+    }
+  } else if (mapStatus(mapAgeDays(map), thresholds) !== 'fresh') {
     try {
       const rebuilt = buildMap(ctx);
       writeMap(ctx, rebuilt);

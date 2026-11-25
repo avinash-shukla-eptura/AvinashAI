@@ -33,3 +33,18 @@ test('pickRef prefers origin/<branch>, then origin/HEAD for branchless, then HEA
   assert.equal(pickRef(undefined, only()), 'HEAD');
   assert.equal(pickRef('gone', only('origin/HEAD')), 'HEAD');
 });
+
+test('throttled syncs reuse the last real sync failures', () => {
+  const cacheDir = mkdtempSync(join(tmpdir(), 'sync-'));
+  try {
+    const t0 = new Date('2026-11-20T10:00:00Z');
+    const broken = { id: 'demo', submodules: [{ name: 'Gone', initialized: true, absPath: join(cacheDir, 'nope') }] };
+    const first = syncSystem(broken, { cacheDir, throttleMinutes: 60, now: t0 });
+    assert.deepEqual(first.failed, ['Gone']);
+    const again = syncSystem(broken, { cacheDir, throttleMinutes: 60, now: new Date(t0.getTime() + 60_000) });
+    assert.equal(again.skipped, true);
+    assert.deepEqual(again.failed, ['Gone']);
+  } finally {
+    rmSync(cacheDir, { recursive: true, force: true });
+  }
+});
