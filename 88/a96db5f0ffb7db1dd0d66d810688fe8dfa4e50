@@ -1,0 +1,34 @@
+pr-review-agent/lib/cache.js
+  s_53d97b0c6a1dd7::t_7ab5d5bee10285 4-5,18-19
+pr-review-agent/system-context.js
+  s_53d97b0c6a1dd7::t_54bdcf4f260cb7 16,22,58-63,66-67,88-95,97-102,113
+pr-review-agent/lib/search.js
+  s_53d97b0c6a1dd7::t_308b8e3cbf0334 40-41
+pr-review-agent/test/search.test.js
+  s_53d97b0c6a1dd7::t_327ead0eb32d3b 3-6,30-41
+pr-review-agent/test/sync.test.js
+  s_53d97b0c6a1dd7::t_327ead0eb32d3b 6,28-35
+pr-review-agent/LOOP_PROMPT.md
+  s_53d97b0c6a1dd7::t_ac6f299b569f41 74
+pr-review-agent/lib/sync.js
+  s_53d97b0c6a1dd7::t_820b7f9063abbf 6-7,17-21,24-26
+pr-review-agent/test/cache.test.js
+  s_53d97b0c6a1dd7::t_327ead0eb32d3b 15-19
+  s_53d97b0c6a1dd7::t_cd1f99ba8a18cb 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "88a96db5f0ffb7db1dd0d66d810688fe8dfa4e50",
+  "prompts": {},
+  "sessions": {
+    "s_53d97b0c6a1dd7": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "5a18863a-e679-4c4b-994f-816887ffc0a4",
+        "model": "unknown"
+      },
+      "human_author": "Avinash Shukla <avinash.shukla@eptura.com>"
+    }
+  }
+}
