@@ -9,13 +9,16 @@
 import { runGit } from './git.js';
 import { refFor } from './sync.js';
 
+// Cap applied only to evidence-bundle hits; the map build needs full line text.
+const MAX_HIT_TEXT = 200;
+
 // ─── Parsing ──────────────────────────────────────────────────────────────────
 
 export const parseGrepLine = (line, ref) => {
   const rest = line.startsWith(`${ref}:`) ? line.slice(ref.length + 1) : line;
   const m = rest.match(/^(.+?):(\d+):(.*)$/);
   if (!m) return null;
-  return { path: m[1], line: Number(m[2]), text: m[3].trim().slice(0, 200) };
+  return { path: m[1], line: Number(m[2]), text: m[3].trim() };
 };
 
 // ─── Search ───────────────────────────────────────────────────────────────────
@@ -43,7 +46,7 @@ export const searchSiblings = ({ ctx, excludeFullName, values, maxValues = 20, m
       const value = vals.find(v => raw.includes(v) && perValue.get(v) < maxHitsPerValue);
       if (!value) continue;
       perValue.set(value, perValue.get(value) + 1);
-      result.hits.push({ value, repo: sub.fullName ?? sub.name, ...hit });
+      result.hits.push({ value, repo: sub.fullName ?? sub.name, ...hit, text: hit.text.slice(0, MAX_HIT_TEXT) });
     }
   }
   return result;

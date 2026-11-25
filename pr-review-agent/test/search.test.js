@@ -19,3 +19,8 @@ test('parseGrepLine keeps colons inside the matched text', () => {
 test('parseGrepLine returns null for non-match lines', () => {
   assert.equal(parseGrepLine('', 'HEAD'), null);
 });
+
+test('parseGrepLine keeps full text so long lines are not truncated for map extraction', () => {
+  const long = 'x'.repeat(250) + ' [HttpGet("late/route")]';
+  assert.equal(parseGrepLine(`HEAD:src/A.cs:1:${long}`, 'HEAD').text, long);
+});

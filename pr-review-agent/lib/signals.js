@@ -36,7 +36,8 @@ export const FILE_RULES = {
 };
 
 export const GREP_KEYWORDS = {
-  dotnet: ['Route', 'ServiceBusTrigger', 'CreateSender', 'GetContainer', 'CosmosDBTrigger', 'PackageReference', 'PackageId'],
+  // Must stay a superset of PATTERNS: a line no keyword matches never reaches extraction.
+  dotnet: ['Route', 'HttpGet', 'HttpPost', 'HttpPut', 'HttpDelete', 'HttpPatch', 'ServiceBusTrigger', 'CreateSender', 'GetContainer', 'CosmosDBTrigger', 'PackageReference', 'PackageId'],
   python: ['@app.', '@router.', 'BaseModel', 'BaseSettings', 'environ', 'getenv'],
 };
 

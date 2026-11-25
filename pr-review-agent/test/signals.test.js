@@ -1,6 +1,6 @@
 import { test }   from 'node:test';
 import assert     from 'node:assert/strict';
-import { extractFromDiff } from '../lib/signals.js';
+import { extractFromDiff, extractFromLine, GREP_KEYWORDS } from '../lib/signals.js';
 
 const DOTNET_DIFF = `diff --git a/src/BookingFunction.cs b/src/BookingFunction.cs
 --- a/src/BookingFunction.cs
@@ -49,4 +49,25 @@ test('README-only diff yields no signals', () => {
 `;
   assert.deepEqual(extractFromDiff(diff, 'dotnet'), []);
   assert.deepEqual(extractFromDiff(diff, 'python'), []);
+});
+
+test('GREP_KEYWORDS prefilter matches every line extractFromLine recognizes', () => {
+  const samples = {
+    dotnet: [
+      '[HttpGet("bookings/{id}")]', '[HttpPost("rooms")]', '[HttpPut("a")]', '[HttpDelete("b")]', '[HttpPatch("c")]',
+      '[Route("api/x")]', 'Route = "api/y"', '[ServiceBusTrigger("q")]', 'client.CreateSender("t")',
+      'GetContainer(db, "c1")', 'CosmosDBTrigger("db", "c2")',
+      '<PackageReference Include="Condeco.Core" />', '<PackageId>Condeco.X</PackageId>',
+    ],
+    python: [
+      '@app.get("/x")', '@router.post("/y")', 'class A(BaseModel):', 'class S(BaseSettings):',
+      'os.environ.get("K")', 'os.getenv("K")', 'os.environ["K"]',
+    ],
+  };
+  for (const [stack, lines] of Object.entries(samples)) {
+    for (const line of lines) {
+      assert.ok(extractFromLine(line, stack).length > 0, `pattern should match: ${line}`);
+      assert.ok(GREP_KEYWORDS[stack].some(k => line.includes(k)), `prefilter misses: ${line}`);
+    }
+  }
 });

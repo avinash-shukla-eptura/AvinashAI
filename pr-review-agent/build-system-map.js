@@ -42,7 +42,9 @@ export const buildMap = (ctx) => {
     const out = keywords.length
       ? runGit(sub.absPath, ['grep', '-n', '-I', '-F', ...keywords.flatMap(k => ['-e', k]), ref], { allowExit1: true })
       : '';
-    for (const raw of (out ?? '').split('\n')) {
+    // null = git failure (not "no match"); throw so callers keep the previous map
+    if (out === null) throw new Error(`git grep failed in ${sub.fullName ?? sub.name}`);
+    for (const raw of out.split('\n')) {
       const hit = parseGrepLine(raw, ref);
       if (!hit) continue;
       for (const s of extractFromLine(hit.text, stack)) {
