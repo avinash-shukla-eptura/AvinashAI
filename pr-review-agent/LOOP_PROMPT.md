@@ -110,4 +110,5 @@ node pr-review-agent/post-system-review.js pr-review-agent/system-review-<number
 ```
 
 Report its summary line (`mode`, `kept`, `dropped`, `posted`). In `silent` mode
-nothing is posted to GitHub; findings go to `pr-review-agent/gap-ledger.jsonl`.
+nothing is posted to GitHub; findings go to `~/.pr-review-agent/gap-ledger.jsonl`
+(or `$PR_REVIEW_DATA_DIR/gap-ledger.jsonl`).
